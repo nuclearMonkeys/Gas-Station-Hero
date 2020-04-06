@@ -6,20 +6,19 @@ using UnityEngine.EventSystems;
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Transform parentToReturnTo = null;
-    private float updatae;
+    private float updateSpeedSec = 0.7f;
     private bool isOverCounter;
 
     private void Update() 
     {
         if(isOverCounter) 
         {
-            transform.position -= new Vector3(0, 9.8f * Time.deltaTime, 0);
+            StartCoroutine(DropObject());
         }
     }
 
     public void OnBeginDrag(PointerEventData eventData) 
     {
-        Debug.Log("OnBeginDrag");
         parentToReturnTo = transform.parent;
         transform.SetParent( transform.parent.parent );
 
@@ -28,13 +27,11 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnDrag(PointerEventData eventData) 
     {
-        Debug.Log("OnDrag");
         transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData) 
     {
-        Debug.Log("OnEndDrag");
         transform.SetParent( parentToReturnTo );
         GetComponent<CanvasGroup>().blocksRaycasts = true;
 
@@ -46,7 +43,15 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     private IEnumerator DropObject() 
     {
-        
-        yield return new WaitForRealTimeSecs(1.0f);
+        float elapsed = 0.0f;
+        while(elapsed < updateSpeedSec) 
+        {
+            elapsed += Time.deltaTime;
+            transform.position -= new Vector3(0, elapsed * 4.4f, 0);
+            yield return new WaitForEndOfFrame();
+        }
+        print(gameObject.name);
+        Destroy(gameObject);
+        yield break;
     }
 }

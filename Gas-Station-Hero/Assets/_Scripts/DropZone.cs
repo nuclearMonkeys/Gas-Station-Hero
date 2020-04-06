@@ -7,12 +7,10 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 {
     public void OnPointerEnter(PointerEventData eventData) 
     {
-        Debug.Log("OnPointerEtner");
     }
 
     public void OnPointerExit(PointerEventData eventData) 
     {
-        Debug.Log("OnPointerExit");
     }
 
     public void OnDrop(PointerEventData eventData) 
