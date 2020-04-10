@@ -9,9 +9,13 @@ public class Consumer : MonoBehaviour
     private Rigidbody2D rb;
     private LineRenderer lineRenderer;
 
-    public bool isGoingToCounter = true;
-    public bool isLeavingStore = false;
-    public bool isServed = false;
+    public string path;
+
+    private bool isGoingToCounter = true;
+    private bool isOnCounter = false;
+    private bool isLeavingStore = false;
+    private bool isServed = false;
+    private bool dialogueLoaded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +36,40 @@ public class Consumer : MonoBehaviour
         {
             isGoingToCounter = false;
             rb.velocity = Vector3.zero;
+            CounterEnter();
+
+        if (isOnCounter && Input.GetKeyDown(KeyCode.C)) 
+        {
+            RunDialogue();
+        }
             return;
         }
+
+
+
         rb.velocity = direction * speed;
     }
+
+    private void CounterEnter() 
+    {
+        isOnCounter = true;
+    }
+
+    private void CounterExit() 
+    {
+        isOnCounter = false;
+    }
+
+    private void RunDialogue() 
+    {
+        if (isOnCounter && !dialogueLoaded) 
+        {
+            
+            dialogueLoaded = DialogueManager.instance.loadDialogue(path);
+        }
+        if (dialogueLoaded)
+            dialogueLoaded = DialogueManager.instance.printLine();
+    }  
 
     void MoveToPlayer() 
     {
