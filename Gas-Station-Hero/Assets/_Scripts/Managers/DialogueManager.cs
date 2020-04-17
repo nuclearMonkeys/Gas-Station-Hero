@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using LitJson;
@@ -8,11 +10,14 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager instance = null;
 
     public TextMeshProUGUI textDisplay;
+    public List<GameObject> buttons = new List<GameObject>();
+
     private JsonData dialogue;
     private int index;
     private string speaker;
 
     private bool inDialogue;
+
 
     private void Awake() 
     {
@@ -46,6 +51,9 @@ public class DialogueManager : MonoBehaviour
         {        
             JsonData line = dialogue[index];
 
+            foreach (JsonData key in line.Keys)
+                speaker = key.ToString();
+
             if (line[0].ToString() == "EOD")
             {
                 inDialogue = false;
@@ -53,13 +61,32 @@ public class DialogueManager : MonoBehaviour
                 return false;            
             }
 
-            foreach (JsonData key in line.Keys)
-                speaker = key.ToString();
+
 
             // This is not a mistake. YMAL mapping is weird like that
             textDisplay.text = speaker + ": " + dialogue[index][0].ToString();
             index++;
         }
         return true;
+    }
+
+    private void DeactivateButtons() 
+    {
+        foreach(GameObject button in buttons) 
+        {
+            button.SetActive(false);
+            button.GetComponentInChildren<Text>().text = "";
+        }
+
+        
+    }
+    private void ActivateButton(GameObject button) 
+    {
+        button.SetActive(true);
+    }
+
+    private void DialogueTextColot(string character) 
+    {
+
     }
 }
