@@ -61,8 +61,6 @@ public class DialogueManager : MonoBehaviour
                 return false;            
             }
 
-
-
             // This is not a mistake. YMAL mapping is weird like that
             textDisplay.text = speaker + ": " + dialogue[index][0].ToString();
             index++;
