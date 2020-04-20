@@ -27,13 +27,19 @@ public class LineSystem : MonoBehaviour
     {
         for (int index = 0; index < maxNumCustomer; index++)
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(1);//change here to adjust spawn rate
             customers[index] = Instantiate(customer_prefab, new Vector3(-3, -10, 0), Quaternion.identity);
             customers[index].GetComponent<InlineCustomerBehavior>().moveUp( LineSpot[index]);
         }
     }
 
-
+    public void endDay()
+    {
+        for (int i = 0; i < maxNumCustomer; i++)
+        {
+            customers[i].GetComponent<InlineCustomerBehavior>().leave();
+        }
+    }
 
     /*================================
      * have the first customer to leave
