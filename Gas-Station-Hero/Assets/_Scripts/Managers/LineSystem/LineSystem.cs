@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public class LineSystem : MonoBehaviour
 {
-    //ADJUSTABLE ATTRIBUTES
-    public float customerSpeed;
-
     private const int maxNumCustomer = 6;
     private int totalCustomer;
     private GameObject[] customers = new GameObject[maxNumCustomer];
