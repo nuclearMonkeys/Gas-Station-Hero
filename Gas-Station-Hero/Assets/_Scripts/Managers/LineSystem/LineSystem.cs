@@ -26,7 +26,7 @@ public class LineSystem : MonoBehaviour
         {
             yield return new WaitForSeconds(1);//change here to adjust spawn rate
             customers[index] = Instantiate(customer_prefab, new Vector3(-3, -10, 0), Quaternion.identity);
-            customers[index].GetComponent<InlineCustomerBehavior>().moveUp( LineSpot[index]);
+            customers[index].GetComponent<InLineCustomerBehavior>().moveUp( LineSpot[index]);
         }
     }
 
@@ -34,7 +34,7 @@ public class LineSystem : MonoBehaviour
     {
         for (int i = 0; i < maxNumCustomer; i++)
         {
-            customers[i].GetComponent<InlineCustomerBehavior>().leave();
+            customers[i].GetComponent<InLineCustomerBehavior>().leave();
         }
     }
 
@@ -45,9 +45,9 @@ public class LineSystem : MonoBehaviour
      * ==============================*/
     public void MoveLine()
     {
-        customers[totalCustomer % maxNumCustomer].GetComponent<InlineCustomerBehavior>().leave();
+        customers[totalCustomer % maxNumCustomer].GetComponent<InLineCustomerBehavior>().leave();
         customers[totalCustomer % maxNumCustomer] = Instantiate(customer_prefab, new Vector3(-2, -10, 0), Quaternion.identity);
-        customers[totalCustomer % maxNumCustomer].GetComponent<InlineCustomerBehavior>().moveUp(LineSpot[maxNumCustomer - 1]);
+        customers[totalCustomer % maxNumCustomer].GetComponent<InLineCustomerBehavior>().moveUp(LineSpot[maxNumCustomer - 1]);
         totalCustomer++;
         StartCoroutine(delayedMove());
     }
@@ -55,7 +55,7 @@ public class LineSystem : MonoBehaviour
     {
         for (int i = 0; i < maxNumCustomer - 1; i++)
         {
-            customers[(totalCustomer + i) % maxNumCustomer].GetComponent<InlineCustomerBehavior>().moveUp(LineSpot[i]);
+            customers[(totalCustomer + i) % maxNumCustomer].GetComponent<InLineCustomerBehavior>().moveUp(LineSpot[i]);
             yield return new WaitForSeconds(0.4f);
         }
     }
