@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InlineCustomerBehavior : MonoBehaviour
+public class InLineCustomerBehavior : MonoBehaviour
 {
     public Vector2 TargetLoc;
     private Vector2 vector;
