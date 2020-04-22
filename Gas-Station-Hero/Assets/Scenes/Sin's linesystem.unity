@@ -266,6 +266,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3127438810387284821, guid: 91c70f3b01b704a479843d4c2e25a8af,
+        type: 3}
+      propertyPath: LineSpot.Array.data[1].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127438810387284821, guid: 91c70f3b01b704a479843d4c2e25a8af,
+        type: 3}
+      propertyPath: LineSpot.Array.data[2].y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127438810387284821, guid: 91c70f3b01b704a479843d4c2e25a8af,
+        type: 3}
+      propertyPath: LineSpot.Array.data[3].y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127438810387284821, guid: 91c70f3b01b704a479843d4c2e25a8af,
+        type: 3}
+      propertyPath: LineSpot.Array.data[4].y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127438810387284821, guid: 91c70f3b01b704a479843d4c2e25a8af,
+        type: 3}
+      propertyPath: LineSpot.Array.data[5].y
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3127438810387284822, guid: 91c70f3b01b704a479843d4c2e25a8af,
         type: 3}
       propertyPath: m_Name
