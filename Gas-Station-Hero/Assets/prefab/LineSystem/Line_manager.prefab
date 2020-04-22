@@ -83,4 +83,4 @@ MonoBehaviour:
   - {x: 0, y: 0}
   customerPrefab: {fileID: 4873789869969007268, guid: 74f6cba4237cbc941968fb20fad3eafc,
     type: 3}
-  customerSpawnPoint: {fileID: 3127438810387284822}
+  customerSpawnPoint: {fileID: 409638765266735093}

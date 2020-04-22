@@ -48,7 +48,7 @@ public class InLineCustomerBehavior : MonoBehaviour
             if (vector.x < 0)
             {
                 vector.x += speed / turnSpeed;
-                vector.y -= speed / turnSpeed;
+                vector.y += speed / turnSpeed;
             }
         }
         else if (moving)    //if the customer is not leaving, but moving is enabled, customer will move toward the targetLocation
