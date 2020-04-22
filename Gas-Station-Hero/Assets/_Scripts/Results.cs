@@ -1,35 +1,58 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Results : MonoBehaviour
 {
-	public int customers = 0;
-	public int savings = 0;
+	public int customers;
+	public int savings;
 	public int goal;
 	public int rent;
 	public int utilities;
 	public int day;
-    // Start is called before the first frame update
+	public GameObject salaryText;
+	public GameObject rentText;
+	public GameObject utilitiesText;
+	public GameObject savingsText;
+	public GameObject dayText;
     void Start()
     {
-		//Show screen
-        savings = calculateTotal();
-		customers = 0;
-		//Reset and progress day
-    }
+
+	}
 
     // Update is called once per frame
     void Update()
     {
-        
+		/*
+        if(endDay)
+		{
+			Show screen;
+			savings = calculateTotal();
+			updateText();
+			endDay = False;
+		}
+		if(leftClick)
+		{
+			customers = 0;
+			Hide Screen;
+			Reset and progress day
+		}
+		*/
     }
 	
-	int calculateTotal()
+	void calculateTotal()
 	{
 		savings += customers * 800;
 		savings -= rent;
 		savings -= utilities;
-		return savings;
+		Debug.Log(savings);
+	}
+	void updateText()
+	{
+		salaryText.GetComponent<Text>().text = "Salary: +$" + (customers*800).ToString();
+		rentText.GetComponent<Text>().text = "Rent: -$" + rent.ToString();
+		utilitiesText.GetComponent<Text>().text = "Utilities: -$" + utilities.ToString();
+		savingsText.GetComponent<Text>().text = "Savings: $" + savings.ToString();
 	}
 }
