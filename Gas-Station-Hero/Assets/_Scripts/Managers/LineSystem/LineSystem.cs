@@ -8,8 +8,8 @@ public class LineSystem : MonoBehaviour
     private GameObject[] customers = new GameObject[maxNumCustomer];
     public Vector2[] LineSpot = new Vector2[maxNumCustomer];
 
-    public GameObject customer_prefab;
-
+    public GameObject customerPrefab;
+    public GameObject customerSpawnPoint;
 
 
 
@@ -25,7 +25,7 @@ public class LineSystem : MonoBehaviour
         for (int index = 0; index < maxNumCustomer; index++)
         {
             yield return new WaitForSeconds(1);//change here to adjust spawn rate
-            customers[index] = Instantiate(customer_prefab, new Vector3(-3, -10, 0), Quaternion.identity);
+            customers[index] = Instantiate(customerPrefab, customerSpawnPoint.transform.position, Quaternion.identity);
             customers[index].GetComponent<InLineCustomerBehavior>().moveUp( LineSpot[index]);
         }
     }
@@ -46,7 +46,7 @@ public class LineSystem : MonoBehaviour
     public void MoveLine()
     {
         customers[totalCustomer % maxNumCustomer].GetComponent<InLineCustomerBehavior>().leave();
-        customers[totalCustomer % maxNumCustomer] = Instantiate(customer_prefab, new Vector3(-2, -10, 0), Quaternion.identity);
+        customers[totalCustomer % maxNumCustomer] = Instantiate(customerPrefab, customerSpawnPoint.transform.position, Quaternion.identity);
         customers[totalCustomer % maxNumCustomer].GetComponent<InLineCustomerBehavior>().moveUp(LineSpot[maxNumCustomer - 1]);
         totalCustomer++;
         StartCoroutine(delayedMove());
