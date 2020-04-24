@@ -5,17 +5,27 @@ using UnityEngine.UI;
 
 public class Results : MonoBehaviour
 {
+	[Header("Prefabs")]
+	public GameObject characterStatusPrefab;
+
+	[Header("Results Variables")]
 	public int customers;
 	public int savings;
 	public int goal;
 	public int rent;
 	public int utilities;
 	public int day;
+	public List<GameObject> characters;
+
+	[Header("UI Variables")]
 	public GameObject salaryText;
 	public GameObject rentText;
 	public GameObject utilitiesText;
 	public GameObject savingsText;
 	public GameObject dayText;
+
+
+
     void Start()
     {
 
