@@ -5,39 +5,43 @@ using UnityEngine.EventSystems;
 
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public Transform parentToReturnTo = null;
+    public Vector2 ReturningPosition;
+    public Vector2 CursorOffset;
+    public float MaxSpeed = 2;
     private float updateSpeedSec = 0.7f;
     private bool isOverCounter;
-
+    private bool CanBeGiven;
+    private bool falling = false;
+    
     private void Update() 
     {
-        if(isOverCounter) 
+        if(falling) 
         {
-            StartCoroutine(DropObject());
+            if (0.1f < ((Vector2)transform.position - ReturningPosition).magnitude)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, ReturningPosition, MaxSpeed * Time.deltaTime);
+            }
         }
     }
 
     public void OnBeginDrag(PointerEventData eventData) 
     {
-        parentToReturnTo = transform.parent;
-        transform.SetParent( transform.parent.parent );
-
+        ReturningPosition = transform.position;
+        CursorOffset = eventData.position - (Vector2)transform.position;
         GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData) 
     {
-        transform.position = eventData.position;
+        transform.position = eventData.position - CursorOffset;
     }
 
     public void OnEndDrag(PointerEventData eventData) 
     {
-        transform.SetParent( parentToReturnTo );
         GetComponent<CanvasGroup>().blocksRaycasts = true;
-
-        if(parentToReturnTo.CompareTag("OverTheCounter")) 
+        if (isOverCounter)
         {
-            isOverCounter = true;
+            //
         }
     }
 
