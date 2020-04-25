@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    
     public void OnPointerEnter(PointerEventData eventData) 
     {
     }
@@ -20,7 +21,7 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
         Draggable d = eventData.pointerDrag.GetComponent<Draggable>();
         if(d) 
         {
-           // d.parentToReturnTo = this.transform;
+            d.isOverCounter = true;
         }
     }
 }

@@ -5,21 +5,21 @@ using UnityEngine.EventSystems;
 
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    
-    public Vector2 ReturningPosition;
-    public Vector2 CursorOffset;
     public bool isOverCounter;
-
+    public bool CanBeGiven;
 
     private Transform parent;
-    private float updateSpeedSec = 0.7f;
-    private bool CanBeGiven;
     private bool falling = false;
+    private bool given = false;
+    private int DisappearCounter = 15;
     private float speed;
+    //private float updateSpeedSec = 0.7f;
+    private Vector2 ReturningPosition;
+    private Vector2 CursorOffset;
 
     private void Update() 
     {
-        if(falling) 
+        if (falling)//if its falling because it was failed to give to customer, it will return to starting location very fast
         {
             Debug.Log("working");
             if (0.1f < ((Vector2)transform.position - ReturningPosition).magnitude)
@@ -31,12 +31,22 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 falling = false;
             }
         }
+        else if(given)
+        {
+            if(DisappearCounter > 0)
+            {
+                GetComponent<RectTransform>().sizeDelta = new Vector2(DisappearCounter*6f , DisappearCounter-- * 6f);
+            }
+            else
+            {
+                given = false;
+            }
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData) 
     {
         parent = transform.parent;
-        //Debug.Log(transform.position);
         transform.SetParent(parent.parent); 
         ReturningPosition = transform.position;
         CursorOffset = eventData.position - (Vector2)transform.position;
@@ -52,15 +62,22 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         transform.SetParent(parent);
         GetComponent<CanvasGroup>().blocksRaycasts = true;
-        speed = ((Vector2)transform.position - ReturningPosition).magnitude*10;
-        falling = true;
-        /*
+        
         if (isOverCounter)
         {
-            
-        }*/
+            if(CanBeGiven)//if the item can be given, it will be given to the customer and disappear
+            {
+                given = true;
+                //CALL EXTRA FUNCTIOSN TO TAKE IMPACT!
+            }
+            else//Will drop the item if the item cannot be given
+            { 
+                speed = ((Vector2)transform.position - ReturningPosition).magnitude * 10;
+                falling = true;
+            }
+        }
     }
-
+    /*
     private IEnumerator DropObject() 
     {
         float elapsed = 0.0f;
@@ -73,5 +90,5 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         print(gameObject.name);
         Destroy(gameObject);
         yield break;
-    }
+    }*/
 }
