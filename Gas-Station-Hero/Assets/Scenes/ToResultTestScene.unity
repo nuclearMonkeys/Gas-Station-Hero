@@ -829,12 +829,12 @@ PrefabInstance:
     - target: {fileID: 3998104248965131554, guid: 581ea3e4fe2b3429fa982ec890c9bb1d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 3998104248965131554, guid: 581ea3e4fe2b3429fa982ec890c9bb1d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 83
       objectReference: {fileID: 0}
     - target: {fileID: 3998104248965131554, guid: 581ea3e4fe2b3429fa982ec890c9bb1d,
         type: 3}
@@ -844,27 +844,27 @@ PrefabInstance:
     - target: {fileID: 3998104248965131554, guid: 581ea3e4fe2b3429fa982ec890c9bb1d,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -82
       objectReference: {fileID: 0}
     - target: {fileID: 3998104248965131554, guid: 581ea3e4fe2b3429fa982ec890c9bb1d,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0.1375
       objectReference: {fileID: 0}
     - target: {fileID: 3998104248965131554, guid: 581ea3e4fe2b3429fa982ec890c9bb1d,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0.75440484
       objectReference: {fileID: 0}
     - target: {fileID: 3998104248965131554, guid: 581ea3e4fe2b3429fa982ec890c9bb1d,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0.1375
       objectReference: {fileID: 0}
     - target: {fileID: 3998104248965131554, guid: 581ea3e4fe2b3429fa982ec890c9bb1d,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0.84543985
       objectReference: {fileID: 0}
     - target: {fileID: 3998104248965131554, guid: 581ea3e4fe2b3429fa982ec890c9bb1d,
         type: 3}
@@ -879,7 +879,7 @@ PrefabInstance:
     - target: {fileID: 3998104248965131554, guid: 581ea3e4fe2b3429fa982ec890c9bb1d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.92059845
+      value: 0.9205984
       objectReference: {fileID: 0}
     - target: {fileID: 3998104248965131554, guid: 581ea3e4fe2b3429fa982ec890c9bb1d,
         type: 3}
@@ -1039,7 +1039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
