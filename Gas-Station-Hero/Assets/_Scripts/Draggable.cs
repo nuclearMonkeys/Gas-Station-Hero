@@ -13,7 +13,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private bool given = false;
     private int DisappearCounter = 60;
     private float speed;
-    //private float updateSpeedSec = 0.7f;
     private Vector2 ReturningPosition;
     private Vector2 CursorOffset;
 
@@ -33,11 +32,10 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         }
         else if(given)
         {
-            if(DisappearCounter > 0)
+            if(DisappearCounter-- > 0)
             {
                 transform.position = new Vector2(transform.position.x, transform.position.y - speed * Time.deltaTime);
                 speed += 20;
-                //GetComponent<RectTransform>().sizeDelta = new Vector2(DisappearCounter*6f , DisappearCounter-- * 6f);
             }
             else
             {
@@ -46,19 +44,24 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         }
     }
 
+
     public void OnBeginDrag(PointerEventData eventData) 
     {
-        parent = transform.parent;
-        transform.SetParent(parent.parent); 
-        ReturningPosition = transform.position;
-        CursorOffset = eventData.position - (Vector2)transform.position;
+        parent = transform.parent;          //needed to set the layer order
+        transform.SetParent(parent.parent); //needed to set the layer order
+        ReturningPosition = transform.position;     //if its placed on invalid spot, this is where the item will return to
+        CursorOffset = eventData.position - (Vector2)transform.position;    //optional
         GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
+
+
 
     public void OnDrag(PointerEventData eventData) 
     {
         transform.position = eventData.position - CursorOffset;
     }
+
+
 
     public void OnEndDrag(PointerEventData eventData) 
     {
@@ -69,10 +72,9 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         {
             if(CanBeGiven)//if the item can be given, it will be given to the customer and disappear
             {
-
                 transform.SetParent(parent.parent);
-                transform.SetSiblingIndex(transform.GetSiblingIndex() -1);
-                speed = -150;
+                transform.SetSiblingIndex(transform.GetSiblingIndex() -1);  //Item will now drop behind the counter
+                speed = -150;       //will initially go upwards 
                 given = true;
                 //CALL EXTRA FUNCTIOSN TO TAKE IMPACT!
             }
