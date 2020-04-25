@@ -11,7 +11,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private Transform parent;
     private bool falling = false;
     private bool given = false;
-    private int DisappearCounter = 15;
+    private int DisappearCounter = 60;
     private float speed;
     //private float updateSpeedSec = 0.7f;
     private Vector2 ReturningPosition;
@@ -35,7 +35,9 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         {
             if(DisappearCounter > 0)
             {
-                GetComponent<RectTransform>().sizeDelta = new Vector2(DisappearCounter*6f , DisappearCounter-- * 6f);
+                transform.position = new Vector2(transform.position.x, transform.position.y - speed * Time.deltaTime);
+                speed += 20;
+                //GetComponent<RectTransform>().sizeDelta = new Vector2(DisappearCounter*6f , DisappearCounter-- * 6f);
             }
             else
             {
@@ -67,6 +69,10 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         {
             if(CanBeGiven)//if the item can be given, it will be given to the customer and disappear
             {
+
+                transform.SetParent(parent.parent);
+                transform.SetSiblingIndex(transform.GetSiblingIndex() -1);
+                speed = -150;
                 given = true;
                 //CALL EXTRA FUNCTIOSN TO TAKE IMPACT!
             }
