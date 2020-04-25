@@ -6,8 +6,8 @@ using UnityEngine.UI; // Delete this later
 public class BaseCharacter : MonoBehaviour
 {
     public string name = "dummy";
-    public int currentLvl = 0;
-    public int pointsToNextLvl = 5;
+    public int currentLevel = 0;
+    public int pointsToNextLevel = 5;
     public int points = 0;
     public List<GameObject> buttons;
 
@@ -30,7 +30,7 @@ public class BaseCharacter : MonoBehaviour
 
     public void GainPoints(int value) 
     {
-        if (points >= pointsToNextLvl || !isInteracting)
+        if (points >= pointsToNextLevel || !isInteracting)
             return;
         points += value;
     }

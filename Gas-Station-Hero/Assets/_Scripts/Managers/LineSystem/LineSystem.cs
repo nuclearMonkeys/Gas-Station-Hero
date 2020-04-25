@@ -86,6 +86,11 @@ public class LineSystem : MonoBehaviour
         {
             MoveLine();
         }
+
+        else if (Input.GetKeyUp(KeyCode.L)) 
+        {
+            endDay();
+        }
     }
 
 
