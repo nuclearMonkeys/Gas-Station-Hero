@@ -76,6 +76,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 falling = true;
             }
         }
+        isOverCounter = false;
     }
     /*
     private IEnumerator DropObject() 
