@@ -11,6 +11,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private Transform parent;
     private bool falling = false;
     private bool given = false;
+    private bool enter = false;
     private int DisappearCounter = 60;
     private float speed;
     private Vector2 ReturningPosition;
@@ -18,7 +19,24 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     private void Update() 
     {
-        if (falling)//if its falling because it was failed to give to customer, it will return to starting location very fast
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ItemEnter();
+        }
+        if (enter)
+        {
+            if (speed <0)
+            {
+                transform.position = new Vector2(transform.position.x, transform.position.y + speed * Time.deltaTime);
+                speed += 7f;
+            }
+            else
+            {
+                speed = 0;
+                enter = false;
+            }
+        }
+        else if (falling)//if its falling because it was failed to give to customer, it will return to starting location very fast
         {
             if (0.1f < ((Vector2)transform.position - ReturningPosition).magnitude)
             {
@@ -105,4 +123,14 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         Destroy(gameObject);
         yield break;
     }*/
+
+    public void ItemEnter()
+    {
+        GetComponent<Image>().GetComponent<CanvasRenderer>().SetAlpha(0.1f);
+
+        GetComponent<Image>().CrossFadeAlpha(1f, 0.2f, false);
+        speed = -150;
+        enter = true;
+
+    }
 }

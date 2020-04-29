@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class Barcode : MonoBehaviour, IDropHandler
 {
     public GameObject CounterManager;
+    public float price;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +20,11 @@ public class Barcode : MonoBehaviour, IDropHandler
     }
     public void OnDrop(PointerEventData eventData)
     {
-        Draggable d = eventData.pointerDrag.GetComponent<Draggable>();
-        if (d)
+        GameObject d = eventData.pointerDrag;
+        if (d.GetComponent<ScanGun>())
         {
-            Debug.Log(gameObject.name);
-            d.ItemFall();
+            d.GetComponent<Draggable>().ItemFall();
+            d.GetComponent<ScanGun>().UpdatePrice(price);
         }
     }
 }
