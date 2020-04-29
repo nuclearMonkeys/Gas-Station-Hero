@@ -5,7 +5,7 @@ public class LineSystem : MonoBehaviour
 {
     private const int maxNumCustomer = 6;
     private int totalCustomer;
-    private GameObject[] customers = new GameObject[maxNumCustomer];
+    public GameObject[] customers = new GameObject[maxNumCustomer];
     public Vector2[] LineSpot = new Vector2[maxNumCustomer];
 
     public GameObject customerPrefab;
@@ -34,7 +34,10 @@ public class LineSystem : MonoBehaviour
     {
         for (int i = 0; i < maxNumCustomer; i++)
         {
-            customers[i].GetComponent<InLineCustomerBehavior>().leave();
+            InLineCustomerBehavior inLineCustomer = customers[i].GetComponent<InLineCustomerBehavior>();
+            if (!inLineCustomer)
+                continue;
+            inLineCustomer.leave();
         }
     }
 
@@ -89,6 +92,7 @@ public class LineSystem : MonoBehaviour
 
         else if (Input.GetKeyUp(KeyCode.L)) 
         {
+            print("");
             endDay();
         }
     }

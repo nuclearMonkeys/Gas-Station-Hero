@@ -9,8 +9,8 @@ public class ClockUI : MonoBehaviour
     private Transform clockHourHandTransform;
     private Transform clockMinuteHandTransform;
     private float day;
-    private float hourFloat;
-    private bool dayEnded = false;
+    public float hourFloat;
+    public bool dayEnded = false;
     // Start is called before the first frame update
     void Start()
     {
