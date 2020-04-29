@@ -19,10 +19,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     private void Update() 
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ItemEnter();
-        }
+        
         if (enter)
         {
             if (speed <0)
