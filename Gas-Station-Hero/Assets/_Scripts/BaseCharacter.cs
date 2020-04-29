@@ -5,10 +5,11 @@ using UnityEngine.UI; // Delete this later
 
 public class BaseCharacter : MonoBehaviour
 {
-    public string name = "dummy";
-    public int currentLevel = 0;
+    public string name = "Knowledge";
+	public GameObject background;
+    public int currentLevel;
     public int pointsToNextLevel = 5;
-    public int points = 0;
+    public int points;
     public List<GameObject> buttons;
 
     [Header("States")]
@@ -20,6 +21,8 @@ public class BaseCharacter : MonoBehaviour
     void Start()
     {
         isInteracting = true;
+		currentLevel = background.GetComponent<Stats>().knowledge;
+		points = background.GetComponent<Stats>().knowledgeExp;
     }
 
     // Update is called once per frame
