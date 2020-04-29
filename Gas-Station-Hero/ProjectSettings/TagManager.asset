@@ -6,6 +6,7 @@ TagManager:
   tags:
   - OverTheCounter
   - CounterLine
+  - barcode
   layers:
   - Default
   - TransparentFX

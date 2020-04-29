@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public bool isOverCounter;
+    public bool isOverCounter = false;
     public bool CanBeGiven;
 
     private Transform parent;
@@ -20,7 +20,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         if (falling)//if its falling because it was failed to give to customer, it will return to starting location very fast
         {
-            Debug.Log("working");
             if (0.1f < ((Vector2)transform.position - ReturningPosition).magnitude)
             {
                 transform.position = Vector2.MoveTowards(transform.position, ReturningPosition, speed * Time.deltaTime);
@@ -79,12 +78,18 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 //CALL EXTRA FUNCTIOSN TO TAKE IMPACT!
             }
             else//Will drop the item if the item cannot be given
-            { 
-                speed = ((Vector2)transform.position - ReturningPosition).magnitude * 10;
-                falling = true;
+            {
+                ItemFall();
             }
         }
         isOverCounter = false;
+    }
+
+
+    public void ItemFall()
+    {
+        speed = ((Vector2)transform.position - ReturningPosition).magnitude * 10;
+        falling = true;
     }
     /*
     private IEnumerator DropObject() 

@@ -16,10 +16,12 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 
     public void OnDrop(PointerEventData eventData) 
     {
+        
         Draggable d = eventData.pointerDrag.GetComponent<Draggable>();
-        if(d) 
+        if (d)
         {
             d.isOverCounter = true;
         }
+
     }
 }
