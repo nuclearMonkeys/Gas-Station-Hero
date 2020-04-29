@@ -10,10 +10,10 @@ public class ScanGun : MonoBehaviour
     public float[] scans = new float[BufferSize];
     public void UpdatePrice(float price)
     {
-        for (int i = BufferSize-1; i != 0; i--)
-        {
-            scans[i] = scans[i - 1];
-        }
+        // for (int i = BufferSize-1; i != 0; i--)
+        // {
+        //     scans[i] = scans[i - 1];
+        // }
         scans[0] = price;
         totalPrice += price;
         registerText.text = totalPrice.ToString();
@@ -28,16 +28,15 @@ public class ScanGun : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Z))
         {
-            for (int i = 0; i < 5; i++)
-            {
-                Debug.Log(scans[i]);
-            }
             UpdatePrice(-scans[0]);
             for (int i = 0; i < BufferSize-1; i++)
             {
                 scans[i] = scans[i + 1];
+                print(scans[i + 1]);
             }
-            scans[BufferSize - 1] = 0;
+
+            scans[BufferSize-1] = 0;
+
         }
     }
 }

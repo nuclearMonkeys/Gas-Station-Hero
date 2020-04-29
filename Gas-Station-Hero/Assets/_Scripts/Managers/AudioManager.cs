@@ -50,5 +50,18 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySound(string name, GameObject playFrom = null, float volume = 1f, bool looping = false) 
     {
+        if (name.Equals("")) 
+        {
+            Debug.Log("NO SOUND EQUIPPED!");
+            return;
+        }
+        int i = GetAudioClipIndex(name);
+        Debug.Assert(i != -1, "AudioManager:PlaySound:: AudioSource Manager has no sound: " + name + "! Chech the Audio/Resources folder!!");
+        AudioSource audioSource = null;
+
+        if (playFrom == null) 
+        {
+            audioSource = sources[i];
+        }
     }
 }
