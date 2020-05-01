@@ -87,7 +87,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             if(CanBeGiven)//if the item can be given, it will be given to the customer and disappear
             {
                 transform.SetParent(parent.parent);
-                transform.SetSiblingIndex(transform.GetSiblingIndex() -1);  //Item will now drop behind the counter
+                transform.SetSiblingIndex(transform.GetSiblingIndex() - 2);  //Item will now drop behind the counter
                 speed = -150;       //will initially go upwards 
                 given = true;
                 //CALL EXTRA FUNCTIOSN TO TAKE IMPACT!
