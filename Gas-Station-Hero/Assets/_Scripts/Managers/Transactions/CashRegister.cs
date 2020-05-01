@@ -49,10 +49,11 @@ public class CashRegister : MonoBehaviour, IDropHandler
         if (payment)
         {
             change = totalPrice - CashPayment.getAmout();
+            UpdateRegisterDisplay(change);
+
             if (change <= 0)        //when the entire amount due is paid
             {
                 TOTAL_SALES_DAILY += totalPrice;
-                UpdateRegisterDisplay(change);
                 for (int i = 0; i < BufferSize; i++)
                 {
                     scans[i] = 0;
