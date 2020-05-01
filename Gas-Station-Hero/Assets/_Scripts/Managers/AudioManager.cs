@@ -16,7 +16,8 @@ public class AudioManager : MonoBehaviour
         clips = new List<AudioClip>();
         int index = 0;
         
-        DirectoryInfo dir = new DirectoryInfo(Application.streamingAssetsPath + "/Audio/Resources");
+        // DirectoryInfo dir = new DirectoryInfo(Application.streamingAssetsPath + "/Audio/Resources");
+        DirectoryInfo dir = new DirectoryInfo(Application.dataPath + "/Audio/Resources");
         FileInfo[] info = dir.GetFiles("*");
         foreach(FileInfo f in info) 
         {
@@ -62,6 +63,51 @@ public class AudioManager : MonoBehaviour
         if (playFrom == null) 
         {
             audioSource = sources[i];
+        }
+        else 
+        {
+            audioSource = playFrom.AddComponent<AudioSource>();
+            audioSource.clip = clips[i];
+            Destroy(audioSource, clips[i].length);
+        }
+
+        audioSource.loop = looping;
+        audioSource.volume = volume;
+
+        if (!audioSource.isPlaying)
+            audioSource.Play();
+    }
+
+    public void StopSound(string name, GameObject stopFrom = null) 
+    {
+        AudioSource audioSource = null;
+        
+        if (stopFrom == null) 
+        {
+            int i = GetAudioClipIndex(name);
+            Debug.Assert(i == -1, "AudioManager:StopSound:: AudioSource Manager has no sound: " + name + "! Check the Audio/Resources folder!");
+            audioSource = sources[i];
+        }
+        else 
+        {
+            AudioSource [] audioSources = stopFrom.GetComponents<AudioSource>();
+            Debug.Assert(audioSources.Length >= 1, "AudioManager:StopSound::" + stopFrom.name + " has no AudioSources!");
+            bool sourceFound = false;
+
+            for (int i = 0; i < audioSources.Length; i++) 
+            {
+                if (audioSources[i].clip.name.Equals(name)) 
+                {
+                    if (sourceFound)
+                        Destroy(audioSources[i]);
+                    else 
+                    {
+                        audioSource = audioSources[i];
+                        sourceFound = true;
+                    }
+                }
+            }
+            Debug.Assert(audioSource != null, "AudioMaanger:StopSound:: No AudioSource with " + name + " found!");
         }
     }
 }
