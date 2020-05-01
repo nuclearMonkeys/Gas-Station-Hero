@@ -26,6 +26,7 @@ public class CashRegister : MonoBehaviour, IDropHandler
         scans[0] = price;
 
         totalPrice += price;
+        change = totalPrice;
         UpdateRegisterDisplay(totalPrice);
     }
     private void UpdateRegisterDisplay(float price)
@@ -48,7 +49,7 @@ public class CashRegister : MonoBehaviour, IDropHandler
         CashPayment CashPayment = payment.GetComponent<CashPayment>();
         if (payment)
         {
-            change = totalPrice - CashPayment.getAmout();
+            change -= CashPayment.getAmout();
             UpdateRegisterDisplay(change);
 
             if (change <= 0)        //when the entire amount due is paid
