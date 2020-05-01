@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CashPayment : MonoBehaviour
 {
-    private float amount;
+    public float amount;
 
     public float getAmout()
     {

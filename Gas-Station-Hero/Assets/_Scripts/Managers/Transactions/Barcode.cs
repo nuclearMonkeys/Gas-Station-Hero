@@ -25,7 +25,7 @@ public class Barcode : MonoBehaviour, IDropHandler
         {
             d.GetComponent<Draggable>().ItemFall();
             transform.parent.GetComponent<Draggable>().CanBeGiven = true;
-            d.GetComponent<ScanGun>().scanning(price);
+            d.GetComponent<ScanGun>().scanning(price,d);
         }
     }
 }

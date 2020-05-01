@@ -8,9 +8,14 @@ public class CashRegister : MonoBehaviour, IDropHandler
 {
     public Text registerText;
 
+
     public float TOTAL_SALES_DAILY;             //total amount of payment recieved today
     public float totalPrice;                    //current transaction total
+
+    private float change;
+    private bool FullPaymentRecieved = false;
     private const int BufferSize = 5;
+    public List<Draggable> scannedItems = new List<Draggable>();
     public float[] scans = new float[BufferSize];
     public void scanned(float price)
     {
@@ -19,33 +24,21 @@ public class CashRegister : MonoBehaviour, IDropHandler
             scans[i] = scans[i - 1];
         }
         scans[0] = price;
-        UpdatePrice(price);
-    }
-    private void UpdatePrice(float price)
-    {
+
         totalPrice += price;
-        registerText.text = totalPrice.ToString();
+        UpdateRegisterDisplay(totalPrice);
+    }
+    private void UpdateRegisterDisplay(float price)
+    {
+        registerText.text = price.ToString("F2");
     }
 
-    // Start is called before the first frame update
-    void Start()
+
+    public void StartNewTransAction()       //CALL THIS BEFORE NEW TRANSACTION!
     {
+        FullPaymentRecieved = false;
         totalPrice = 0;
-        TOTAL_SALES_DAILY = 0;
-    }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            UpdatePrice(-scans[0]);
-            for (int i = 0; i < BufferSize - 1; i++)
-            {
-                scans[i] = scans[i + 1];
-            }
-
-            scans[BufferSize - 1] = 0;
-
-        }
+        UpdateRegisterDisplay(0);
     }
 
 
@@ -55,14 +48,47 @@ public class CashRegister : MonoBehaviour, IDropHandler
         CashPayment CashPayment = payment.GetComponent<CashPayment>();
         if (payment)
         {
-            TOTAL_SALES_DAILY += CashPayment.getAmout();
-            totalPrice = 0;
-            for (int i = 0; i < BufferSize; i++)
+            change = totalPrice - CashPayment.getAmout();
+            if (change <= 0)        //when the entire amount due is paid
             {
-                scans[i] = 0;
+                TOTAL_SALES_DAILY += totalPrice;
+                UpdateRegisterDisplay(change);
+                for (int i = 0; i < BufferSize; i++)
+                {
+                    scans[i] = 0;
+                }
+                Destroy(payment);
+                FullPaymentRecieved = true;
+                foreach(Draggable draggable in scannedItems)
+                {
+                    draggable.CanBeGiven = true;
+                }
+                scannedItems.RemoveRange(0, scannedItems.Count);
             }
-            Destroy(payment);
+            
         }
+    }
 
+
+
+    void Start()
+    {
+        StartNewTransAction();
+        TOTAL_SALES_DAILY = 0;
+    }
+
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            totalPrice -= scans[0];
+            UpdateRegisterDisplay(totalPrice);
+            for (int i = 0; i < BufferSize - 1; i++)
+            {
+                scans[i] = scans[i + 1];
+            }
+            scans[BufferSize - 1] = 0;
+        }
     }
 }
