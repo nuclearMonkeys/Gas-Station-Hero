@@ -10,6 +10,10 @@ public class LineSystem : MonoBehaviour
 
     public GameObject customerPrefab;
     public GameObject customerSpawnPoint;
+	public GameObject customer;
+	public GameObject panel;
+	public GameObject itemPrefab;
+	
 
 
 
@@ -63,7 +67,7 @@ public class LineSystem : MonoBehaviour
         }
     }
 
-
+	
 
     /*=======================
      * Returns total number of customers served
@@ -72,7 +76,28 @@ public class LineSystem : MonoBehaviour
     {
         return totalCustomer;
     }
-
+	
+	public void customerOrder()
+	{
+		if(customers[0]!= null && !customers[0].GetComponent<InLineCustomerBehavior>().moving && !customers[0].GetComponent<InLineCustomerBehavior>().ordering)
+		{
+			customers[0].GetComponent<InLineCustomerBehavior>().ordering = true;
+			startTransaction();
+		}
+	}
+	
+	public void startTransaction()
+	{
+		customer.SetActive(true);
+		//Spawn items
+		//Keep track of what total should be, and array of all spawned items
+		//If register total and saved total are same, success when taking cash
+			//Customers leaves, image is deleted and MoveLine() called
+			//Add customer completed to counter
+		//Else if wrong money/scanned wrong
+			//Customer gets mad and leaves
+	}
+	
     // Start is called before the first frame update
     void Start()
     {
@@ -85,6 +110,7 @@ public class LineSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		customerOrder();
         if (Input.GetKeyUp(KeyCode.Space))
         {
             MoveLine();

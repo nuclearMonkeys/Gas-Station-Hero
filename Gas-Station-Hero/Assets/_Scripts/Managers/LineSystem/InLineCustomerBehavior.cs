@@ -9,7 +9,8 @@ public class InLineCustomerBehavior : MonoBehaviour
     public float speed = 3;
     private float turnSpeed = 100;
     private bool leaving = false;
-    private bool moving = false;
+    public bool moving = false;
+	public bool ordering = false;
 
     /*=================================
     fucntion to have the customer leave the line and self destroy after 5 secs,
@@ -32,6 +33,7 @@ public class InLineCustomerBehavior : MonoBehaviour
         moving = true;
     }
     
+	
 
     /*=================================
      Update is called once per frame
