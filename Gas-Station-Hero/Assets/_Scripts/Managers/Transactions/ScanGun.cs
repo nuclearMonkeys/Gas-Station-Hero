@@ -8,13 +8,17 @@ public class ScanGun : MonoBehaviour
     public float totalPrice;
     private const int BufferSize = 5;
     public float[] scans = new float[BufferSize];
-    public void UpdatePrice(float price)
+    public void scanned(float price)
     {
-        // for (int i = BufferSize-1; i != 0; i--)
-        // {
-        //     scans[i] = scans[i - 1];
-        // }
+        for (int i = BufferSize-1; i != 0; i--)
+         {
+             scans[i] = scans[i - 1];
+         }
         scans[0] = price;
+        UpdatePrice(price);
+    }
+    private void UpdatePrice(float price)
+    {
         totalPrice += price;
         registerText.text = totalPrice.ToString();
     }
@@ -32,7 +36,6 @@ public class ScanGun : MonoBehaviour
             for (int i = 0; i < BufferSize-1; i++)
             {
                 scans[i] = scans[i + 1];
-                print(scans[i + 1]);
             }
 
             scans[BufferSize-1] = 0;

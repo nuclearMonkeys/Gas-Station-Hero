@@ -24,7 +24,7 @@ public class Barcode : MonoBehaviour, IDropHandler
         if (d.GetComponent<ScanGun>())
         {
             d.GetComponent<Draggable>().ItemFall();
-            d.GetComponent<ScanGun>().UpdatePrice(price);
+            d.GetComponent<ScanGun>().scanned(price);
         }
     }
 }
