@@ -31,6 +31,7 @@ public class LineSystem : MonoBehaviour
             yield return new WaitForSeconds(1);//change here to adjust spawn rate
             customers[index] = Instantiate(customerPrefab, customerSpawnPoint.transform.localPosition, Quaternion.identity);
             customers[index].GetComponent<InLineCustomerBehavior>().moveUp( LineSpot[index]);
+  
         }
     }
 
@@ -103,9 +104,6 @@ public class LineSystem : MonoBehaviour
     {
         startDay();
     }
-
-
-
 
     // Update is called once per frame
     void Update()

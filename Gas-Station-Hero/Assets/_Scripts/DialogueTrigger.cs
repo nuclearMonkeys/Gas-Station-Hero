@@ -4,21 +4,56 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public GameObject player;
+    public DialogueManager dialogueManager;
+    public GameObject lineManager;
     public string dialoguePath;
-
-    private bool inTrigger = false;
+    public int dialogue_id;
+    public string string_dialogue_id;
+    
+    private bool inTrigger = true;
     private bool dialogueLoaded = false;
+    private bool isNewCustomer = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (dialogueManager == null)
+        {
+            dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        }
     }
 
+    private void runDialogue(bool keyTrigger)
+    {
+        Debug.Log("Dialogue Running");
+
+        if (keyTrigger)
+        {
+            if(inTrigger && !dialogueLoaded && isNewCustomer)
+            {
+                Debug.Log("Dialogue Loaded");
+                isNewCustomer = false;
+                dialogue_id = Random.Range(0,3);
+                string_dialogue_id = dialogue_id.ToString();
+                dialogueLoaded = dialogueManager.loadDialogue(dialoguePath + string_dialogue_id);
+                
+            }
+            if(dialogueLoaded)
+            {
+                dialogueLoaded = dialogueManager.printLine();
+            }
+            
+        }  
+    }
     // Update is called once per frame
     void Update()
-    {
-        
+    {      
+        runDialogue(Input.GetKeyDown(KeyCode.C));
+
+        // current command to get new customer is space
+        // new dialog will be loaded only if space is pressed 
+        if(Input.GetKeyDown(KeyCode.Space)) {
+            isNewCustomer = true;
+        }
     }
 }

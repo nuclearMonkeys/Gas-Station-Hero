@@ -1,15 +1,15 @@
 [
 	{
-		"Peter": "Look Holly!"
+		"Player": "Welcome! How can I help you"
 	},
 	{
-		"Peter": "I can speak!"
+		"Customer": "Do you have any discounts"
 	},
 	{
-		"Holly": "That's great, Peter!"
+		"Player": "No I'm sorry we don't have any at the moment"
 	},
 	{
-		"Holly": "I'm so proud of you!"
+		"Customer": "Hurmpf!"
 	},
 	{
 		"EOD": "EOD"

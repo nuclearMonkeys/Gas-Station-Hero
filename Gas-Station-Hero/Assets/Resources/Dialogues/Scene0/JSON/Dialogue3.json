@@ -1,0 +1,17 @@
+[
+	{
+		"Player": "Welcome! How can I help you"
+	},
+	{
+		"Customer": "Are there any deals today?"
+	},
+	{
+		"Player": "We have a two for one slim jim deal1"
+	},
+	{
+		"Customer": "hmm.. no thanks"
+	},
+	{
+		"EOD": "EOD"
+	}
+]
