@@ -47,7 +47,7 @@ public class CashRegister : MonoBehaviour, IDropHandler
     {
         GameObject payment = eventData.pointerDrag;
         CashPayment CashPayment = payment.GetComponent<CashPayment>();
-        if (payment)
+        if (CashPayment)
         {
             change -= CashPayment.getAmout();
             UpdateRegisterDisplay(change);
