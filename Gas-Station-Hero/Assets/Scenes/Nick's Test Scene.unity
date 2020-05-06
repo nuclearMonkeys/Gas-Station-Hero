@@ -258,6 +258,17 @@ PrefabInstance:
       propertyPath: customer
       value: 
       objectReference: {fileID: 1295759723}
+    - target: {fileID: 3127438810387284821, guid: 91c70f3b01b704a479843d4c2e25a8af,
+        type: 3}
+      propertyPath: itemPrefab
+      value: 
+      objectReference: {fileID: 4836028892242774780, guid: 934d0ceed5a536f49b81347f435c58a5,
+        type: 3}
+    - target: {fileID: 3127438810387284821, guid: 91c70f3b01b704a479843d4c2e25a8af,
+        type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 2110792197}
     - target: {fileID: 3127438810387284822, guid: 91c70f3b01b704a479843d4c2e25a8af,
         type: 3}
       propertyPath: m_Name
@@ -1495,6 +1506,12 @@ PrefabInstance:
 --- !u!224 &2110792196 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6049541967350486885, guid: fbc1495c7e98ccf47bb55a522886d154,
+    type: 3}
+  m_PrefabInstance: {fileID: 2110792195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2110792197 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6049541967350486890, guid: fbc1495c7e98ccf47bb55a522886d154,
     type: 3}
   m_PrefabInstance: {fileID: 2110792195}
   m_PrefabAsset: {fileID: 0}
