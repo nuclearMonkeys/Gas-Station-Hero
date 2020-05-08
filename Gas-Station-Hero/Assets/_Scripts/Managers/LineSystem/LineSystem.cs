@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class LineSystem : MonoBehaviour
 {
+    public static LineSystem instance;
     private const int maxNumCustomer = 6;
     private int totalCustomer;
     public GameObject[] customers = new GameObject[maxNumCustomer];
@@ -14,13 +15,35 @@ public class LineSystem : MonoBehaviour
     public GameObject customerSpawnPoint;
 	public GameObject customer;
 	public GameObject panel;
-	
-
-
 
     /*=======================
      * Start spawning customer 1 at a time
      * =========================*/
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (instance)
+            Destroy(this);
+        instance = this;
+        startDay();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+		customerOrder();
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            MoveLine();
+        }
+
+        else if (Input.GetKeyUp(KeyCode.L)) 
+        {
+            print("");
+            endDay();
+        }
+    }
+
     public void startDay()
     {
         StartCoroutine(SpwanCustomer());
@@ -104,30 +127,4 @@ public class LineSystem : MonoBehaviour
 		//Else if wrong money/scanned wrong
 			//Customer gets mad and leaves
 	}
-	
-    // Start is called before the first frame update
-    void Start()
-    {
-        startDay();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-		customerOrder();
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            MoveLine();
-        }
-
-        else if (Input.GetKeyUp(KeyCode.L)) 
-        {
-            print("");
-            endDay();
-        }
-    }
-
-
-
-
 }

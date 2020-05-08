@@ -9,15 +9,16 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public bool CanBeGiven;
 
     private Transform parent;
-    private bool falling = false;
-    private bool given = false;
-    private bool enter = false;
-    private int DisappearCounter = 60;
-    private float speed;
-    private Vector2 ReturningPosition;
-    private Vector2 CursorOffset;
+    protected bool falling = false;
+    protected bool given = false;
+    protected bool enter = false;
+    protected int DisappearCounter = 60;
+    protected float speed;
+    protected Vector2 ReturningPosition;
+    protected Vector2 CursorOffset;
 
-    private void Update() 
+    // This is weird practice, but this is specifically used for reciepts
+    public virtual void Update() 
     {
         
         if (enter)
@@ -77,15 +78,16 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
 
 
-    public void OnEndDrag(PointerEventData eventData) 
+    public virtual void OnEndDrag(PointerEventData eventData) 
     {
         transform.SetParent(parent);
         GetComponent<CanvasGroup>().blocksRaycasts = true;
-        
+        print("get your game on");
         if (isOverCounter)
         {
             if(CanBeGiven)//if the item can be given, it will be given to the customer and disappear
             {
+                print("you're an all star");
                 transform.SetParent(parent.parent);
                 transform.SetSiblingIndex(transform.GetSiblingIndex() - 2);  //Item will now drop behind the counter
                 speed = -150;       //will initially go upwards 
