@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     public Text playerTextDisplay;
     private JsonData dialogue;
     private int index;
+    private string line_position = "\n\n";
     private string speaker;
 
     private bool inDialogue;
@@ -61,6 +62,7 @@ public class DialogueManager : MonoBehaviour
                 customerTextDisplay.text = "";
                 playerTextDisplay.text = "";
                 index = 0;
+                line_position = "\n\n";
                 return false;          
             }
 
@@ -69,12 +71,13 @@ public class DialogueManager : MonoBehaviour
 
             // This is not a mistake. YMAL mapping is weird like that
             if("Customer" == speaker) {
-                customerTextDisplay.text = dialogue[index][0].ToString();
+                customerTextDisplay.text += dialogue[index][0].ToString() + line_position; 
             }
             else {
-                playerTextDisplay.text = dialogue[index][0].ToString();
+                playerTextDisplay.text += dialogue[index][0].ToString() + line_position;
             }
             index++;
+            line_position += "\n\n";
         }
         return true;
     }
