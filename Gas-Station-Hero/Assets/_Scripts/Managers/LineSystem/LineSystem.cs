@@ -7,12 +7,13 @@ public class LineSystem : MonoBehaviour
     private int totalCustomer;
     public GameObject[] customers = new GameObject[maxNumCustomer];
     public Vector2[] LineSpot = new Vector2[maxNumCustomer];
+	public GameObject[] items = new GameObject[10];
 
     public GameObject customerPrefab;
+	public GameObject itemPrefab;
     public GameObject customerSpawnPoint;
 	public GameObject customer;
 	public GameObject panel;
-	public GameObject itemPrefab;
 	
 
 
@@ -90,7 +91,12 @@ public class LineSystem : MonoBehaviour
 	public void startTransaction()
 	{
 		customer.SetActive(true);
-		//Spawn items
+		for(int i = 0; i < (int)Random.Range(1.0f, 4.0f); i++)
+		{
+			GameObject t = Instantiate(itemPrefab, panel.transform);
+			t.transform.GetChild(0).GetComponent<Barcode>().price = Random.Range(1.04f, 1.07f);
+			items[i] = t;
+		}
 		//Keep track of what total should be, and array of all spawned items
 		//If register total and saved total are same, success when taking cash
 			//Customers leaves, image is deleted and MoveLine() called

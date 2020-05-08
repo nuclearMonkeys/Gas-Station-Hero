@@ -15,6 +15,8 @@ public class Stats : MonoBehaviour
 	public int courageExp;
 	public int kacper;
 	int kacperCap;
+	public int customersServed;
+	public int savings;
     // Start is called before the first frame update
     void Start()
     {
