@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-// Creates constants for layers.
-public class LayerManager : MonoBehaviour
+﻿public class LayerManager
 {
-    public static int COUNTER = 8;
+    public static int DEFAULT = 0;
+    public static int BACKGROUND = 0;
+    public static int MIDGROUND = 1;
+    public static int FOREGROUND = 2;
 }

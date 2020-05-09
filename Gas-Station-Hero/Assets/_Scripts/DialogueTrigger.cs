@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public DialogueManager dialogueManager;
+    // public DialogueManager dialogueManager;
     public GameObject lineManager;
     public string dialoguePath;
     public int dialogue_id;
@@ -15,17 +15,17 @@ public class DialogueTrigger : MonoBehaviour
     private bool isNewCustomer = true;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        if (dialogueManager == null)
-        {
-            dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
-        }
-    }
+    // void Start()
+    // {
+    //     if (dialogueManager == null)
+    //     {
+    //         dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+    //     }
+    // }
 
     private void runDialogue(bool keyTrigger)
     {
-        Debug.Log("Dialogue Running");
+        // Debug.Log("Dialogue Running");
 
         if (keyTrigger)
         {
@@ -35,12 +35,12 @@ public class DialogueTrigger : MonoBehaviour
                 isNewCustomer = false;
                 dialogue_id = Random.Range(0,3);
                 string_dialogue_id = dialogue_id.ToString();
-                dialogueLoaded = dialogueManager.loadDialogue(dialoguePath + string_dialogue_id);
+                dialogueLoaded = DialogueManager.instance.loadDialogue(dialoguePath + string_dialogue_id);
                 
             }
             if(dialogueLoaded)
             {
-                dialogueLoaded = dialogueManager.printLine();
+                dialogueLoaded = DialogueManager.instance.printLine();
             }
             
         }  

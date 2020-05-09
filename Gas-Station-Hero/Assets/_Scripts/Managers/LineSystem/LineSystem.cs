@@ -54,6 +54,7 @@ public class LineSystem : MonoBehaviour
         {
             yield return new WaitForSeconds(1);//change here to adjust spawn rate
             customers[index] = Instantiate(customerPrefab, customerSpawnPoint.transform.localPosition, Quaternion.identity);
+            customers[index].GetComponent<SpriteRenderer>().sortingLayerName = "Midground";
             customers[index].GetComponent<InLineCustomerBehavior>().moveUp( LineSpot[index]);
   
         }

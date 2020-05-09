@@ -7,13 +7,13 @@ using LitJson;
 
 public class DialogueManager : MonoBehaviour
 {
-    // public static DialogueManager instance = null;
+    public static DialogueManager instance = null;
 
     // public TextMeshProUGUI textDisplay;
     // public List<GameObject> buttons = new List<GameObject>();
 
-    public Text customerTextDisplay;
-    public Text playerTextDisplay;
+    public TextMeshProUGUI customerTextDisplay;
+    public TextMeshProUGUI playerTextDisplay;
     private JsonData dialogue;
     private int index;
     private string line_position = "\n\n";
@@ -21,21 +21,19 @@ public class DialogueManager : MonoBehaviour
 
     private bool inDialogue;
 
-
-
-    // private void Awake() 
-    // {
-    //     if(!instance) 
-    //     {
-    //         instance = this;
-    //         DontDestroyOnLoad(gameObject);
-    //     }
-    //     else 
-    //     {
-    //         Destroy(gameObject);
-    //         return;
-    //     }
-    // }
+    private void Awake() 
+    {
+        if(!instance) 
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else 
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
 
     public bool loadDialogue(string path) 
     {
