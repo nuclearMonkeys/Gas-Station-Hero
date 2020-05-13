@@ -117,8 +117,10 @@ public class LineSystem : MonoBehaviour
 	
 	public void startTransaction()
 	{
+		Debug.Log("Start transaction");
 		customer.SetActive(true);
 		float totalPrice = 0;
+		Debug.Log("Before for loop");
 		for(int i = 0; i < (int)Random.Range(1.0f, 4.0f); i++)
 		{
 			GameObject t = Instantiate(itemPrefab, panel.transform);

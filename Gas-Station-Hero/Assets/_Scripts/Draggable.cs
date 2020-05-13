@@ -8,7 +8,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public bool isOverCounter = false;
     public bool CanBeGiven;
 
-    private Transform parent;
+    public Transform parent;
     protected bool falling = false;
     protected bool given = false;
     protected bool enter = false;
@@ -82,7 +82,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         transform.SetParent(parent);
         GetComponent<CanvasGroup>().blocksRaycasts = true;
-        print("get your game on");
+        print("Ended Drag");
         if (isOverCounter)
         {
             if(CanBeGiven)//if the item can be given, it will be given to the customer and disappear

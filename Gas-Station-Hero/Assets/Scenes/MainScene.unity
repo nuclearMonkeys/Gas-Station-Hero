@@ -260,6 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOverCounter: 0
   CanBeGiven: 0
+  parent: {fileID: 0}
 --- !u!114 &129173746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -876,6 +877,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777527289063777850, guid: fa721f7a890f6ae4e9af18f6862e1587,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5777527289063777853, guid: fa721f7a890f6ae4e9af18f6862e1587,
         type: 3}
@@ -1777,6 +1783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOverCounter: 0
   CanBeGiven: 1
+  parent: {fileID: 0}
 --- !u!114 &888197901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1962,9 +1969,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOverCounter: 1
   CanBeGiven: 1
+  parent: {fileID: 0}
   register: {fileID: 1623771668}
   line_manager: {fileID: 859804621}
   statsHolder: {fileID: 1360618620}
+  originalLocation: {x: 0, y: 0, z: 0}
 --- !u!222 &1104923969
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2940,6 +2949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOverCounter: 0
   CanBeGiven: 1
+  parent: {fileID: 0}
 --- !u!114 &1565569982
 MonoBehaviour:
   m_ObjectHideFlags: 0
