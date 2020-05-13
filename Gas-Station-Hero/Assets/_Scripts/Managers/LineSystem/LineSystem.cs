@@ -15,6 +15,9 @@ public class LineSystem : MonoBehaviour
     public GameObject customerSpawnPoint;
 	public GameObject customer;
 	public GameObject panel;
+	public GameObject cash;
+	public GameObject register;
+	
 
     /*=======================
      * Start spawning customer 1 at a time
@@ -115,17 +118,69 @@ public class LineSystem : MonoBehaviour
 	public void startTransaction()
 	{
 		customer.SetActive(true);
+		float totalPrice = 0;
 		for(int i = 0; i < (int)Random.Range(1.0f, 4.0f); i++)
 		{
 			GameObject t = Instantiate(itemPrefab, panel.transform);
-			t.transform.GetChild(0).GetComponent<Barcode>().price = Random.Range(1.04f, 1.07f);
+			float temp = (float)System.Math.Round(Random.Range(1.04f, 1.07f),2);
+			t.transform.GetChild(0).GetComponent<Barcode>().price = temp;
+			t.name = "Item";
+			totalPrice += temp;
 			items[i] = t;
 		}
-		//Keep track of what total should be, and array of all spawned items
-		//If register total and saved total are same, success when taking cash
-			//Customers leaves, image is deleted and MoveLine() called
-			//Add customer completed to counter
-		//Else if wrong money/scanned wrong
-			//Customer gets mad and leaves
+		Debug.Log("Reach");
+		float givenMoney = 0;
+		while(givenMoney != totalPrice)
+		{
+			if(totalPrice-givenMoney >= 10)
+			{
+				GameObject t = Instantiate(cash, panel.transform);
+				t.GetComponent<CashPayment>().setAmount(10);
+				givenMoney += 10;
+				register.GetComponent<CashRegister>().paymentList.Add(t);
+			}
+			else if(totalPrice-givenMoney >= 5)
+			{
+				GameObject t = Instantiate(cash, panel.transform);
+				t.GetComponent<CashPayment>().setAmount(5);
+				givenMoney += 5;
+				register.GetComponent<CashRegister>().paymentList.Add(t);
+			}
+			else if(totalPrice-givenMoney >= 1)
+			{
+				GameObject t = Instantiate(cash, panel.transform);
+				t.GetComponent<CashPayment>().setAmount(1);
+				givenMoney += 1;
+				register.GetComponent<CashRegister>().paymentList.Add(t);
+			}
+			else if(totalPrice-givenMoney >= .25)
+			{
+				GameObject t = Instantiate(cash, panel.transform);
+				t.GetComponent<CashPayment>().setAmount(.25f);
+				givenMoney += .25f;
+				register.GetComponent<CashRegister>().paymentList.Add(t);
+			}
+			else if(totalPrice-givenMoney >= .1)
+			{
+				GameObject t = Instantiate(cash, panel.transform);
+				t.GetComponent<CashPayment>().setAmount(.1f);
+				givenMoney += .1f;
+				register.GetComponent<CashRegister>().paymentList.Add(t);
+			}
+			else if(totalPrice-givenMoney >= .05)
+			{
+				GameObject t = Instantiate(cash, panel.transform);
+				t.GetComponent<CashPayment>().setAmount(.05f);
+				givenMoney += .05f;
+				register.GetComponent<CashRegister>().paymentList.Add(t);
+			}
+			else// if(totalPrice >= .01)
+			{
+				GameObject t = Instantiate(cash, panel.transform);
+				t.GetComponent<CashPayment>().setAmount(.01f);
+				givenMoney += .01f;
+				register.GetComponent<CashRegister>().paymentList.Add(t);
+			}
+		}
 	}
 }

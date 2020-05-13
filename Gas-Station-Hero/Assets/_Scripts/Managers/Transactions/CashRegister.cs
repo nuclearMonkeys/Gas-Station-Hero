@@ -17,6 +17,9 @@ public class CashRegister : MonoBehaviour, IDropHandler
     private const int BufferSize = 5;
     public List<Draggable> scannedItems = new List<Draggable>();
     public float[] scans = new float[BufferSize];
+	public List<GameObject> paymentList = new List<GameObject>();
+	public bool oneScan = false;
+	
     public void scanned(float price)
     {
         for (int i = BufferSize - 1; i != 0; i--)
@@ -24,7 +27,7 @@ public class CashRegister : MonoBehaviour, IDropHandler
             scans[i] = scans[i - 1];
         }
         scans[0] = price;
-
+		oneScan = true;
         totalPrice += price;
         change = totalPrice;
         UpdateRegisterDisplay(totalPrice);
@@ -49,7 +52,7 @@ public class CashRegister : MonoBehaviour, IDropHandler
         CashPayment CashPayment = payment.GetComponent<CashPayment>();
         if (CashPayment)
         {
-            change -= CashPayment.getAmout();
+            change -= CashPayment.getAmount();
             UpdateRegisterDisplay(change);
 
             if (change <= 0)        //when the entire amount due is paid
@@ -59,13 +62,18 @@ public class CashRegister : MonoBehaviour, IDropHandler
                 {
                     scans[i] = 0;
                 }
-                Destroy(payment);
+                while(paymentList[0] != null && oneScan == true)
+				{
+					Destroy(paymentList[0]);
+					paymentList.RemoveAt(0);
+				}
                 FullPaymentRecieved = true;
                 foreach(Draggable draggable in scannedItems)
                 {
                     draggable.CanBeGiven = true;
                 }
                 scannedItems.RemoveRange(0, scannedItems.Count);
+				oneScan = false;
             }
             
         }

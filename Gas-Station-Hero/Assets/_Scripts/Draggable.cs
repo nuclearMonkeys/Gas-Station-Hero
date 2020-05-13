@@ -92,6 +92,10 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 transform.SetSiblingIndex(transform.GetSiblingIndex() - 2);  //Item will now drop behind the counter
                 speed = -150;       //will initially go upwards 
                 given = true;
+				if(gameObject.name == "Item")
+				{
+					Destroy(gameObject);
+				}
                 //CALL EXTRA FUNCTIOSN TO TAKE IMPACT!
             }
             else//Will drop the item if the item cannot be given

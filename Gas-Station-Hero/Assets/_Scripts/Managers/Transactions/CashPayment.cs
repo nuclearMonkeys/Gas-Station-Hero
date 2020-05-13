@@ -6,11 +6,11 @@ public class CashPayment : MonoBehaviour
 {
     public float amount;
 
-    public float getAmout()
+    public float getAmount()
     {
         return amount;
     }
-    public void setAmout(float i)
+    public void setAmount(float i)
     {
         amount = i;
     }
