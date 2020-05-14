@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 3127438810387284820}
   - component: {fileID: 3127438810387284821}
   m_Layer: 0
-  m_Name: Line_Manager
+  m_Name: Line_manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,6 +74,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b64f4953d9466f4d94da7a047373776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   LineSpot:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
@@ -81,6 +88,23 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   - {x: 0, y: 0}
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   customerPrefab: {fileID: 4873789869969007268, guid: 74f6cba4237cbc941968fb20fad3eafc,
     type: 3}
+  itemPrefab: {fileID: 5370249020010881424, guid: 96bfabedf33841549bb720efa1bab59a,
+    type: 3}
   customerSpawnPoint: {fileID: 409638765266735093}
+  customer: {fileID: 0}
+  panel: {fileID: 0}
+  cash: {fileID: 0}
+  register: {fileID: 0}
