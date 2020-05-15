@@ -65,14 +65,19 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         parent = transform.parent;          //needed to set the layer order
         transform.SetParent(parent.parent); //needed to set the layer order
         ReturningPosition = transform.position;     //if its placed on invalid spot, this is where the item will return to
-        CursorOffset = eventData.position - (Vector2)transform.position;    //optional
+        //CursorOffset = eventData.position - (Vector2)transform.position;    //optional
         GetComponent<CanvasGroup>().blocksRaycasts = false;
+        if (GetComponent<ScanGun>())
+        {
+            GetComponent<Image>().enabled = true;
+            transform.GetChild(0).GetComponent<Image>().enabled = false;
+        }
     }
 
 
     public void OnDrag(PointerEventData eventData) 
     {
-        transform.position = eventData.position - CursorOffset;
+        transform.position = eventData.position; //- CursorOffset;
     }
 
 
@@ -82,6 +87,11 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         transform.SetParent(parent);
         GetComponent<CanvasGroup>().blocksRaycasts = true;
         print("Ended Drag");
+        if (GetComponent<ScanGun>())
+        {
+            GetComponent<Image>().enabled = false;
+            transform.GetChild(0).GetComponent<Image>().enabled = true;
+        }
         if (isOverCounter)
         {
             if(CanBeGiven)//if the item can be given, it will be given to the customer and disappear
