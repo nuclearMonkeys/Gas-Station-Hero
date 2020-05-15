@@ -6,12 +6,35 @@
 		"Customer": "Do you have any discounts"
 	},
 	{
-		"Player": "No I'm sorry we don't have any at the moment"
-	},
-	{
-		"Customer": "Hurmpf!"
-	},
-	{
-		"EOD": "EOD"
+		"?": [
+			{
+				"1": [
+					"No, I'm sorry we don't have any at the moment",
+					{
+						"Player": "No, I'm sorry we don't have any at the moment!"
+					},
+					{
+						"Customer": "Hurmpf!"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			},
+			{
+				"2": [
+					"Yes! we have a Sushi Saturday! buy 1 get 1 free",
+					{
+						"Player": "Yes! we have a Sushi Saturday! buy 1 get 1 free"
+					},
+					{
+						"Customer": "Umm its ok thanks"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			}
+		]
 	}
 ]
