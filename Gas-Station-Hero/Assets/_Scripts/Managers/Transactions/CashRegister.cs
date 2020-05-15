@@ -62,7 +62,7 @@ public class CashRegister : MonoBehaviour, IDropHandler
                 {
                     scans[i] = 0;
                 }
-                while(paymentList[0] != null && oneScan == true)
+                while (paymentList.Count != 0 && oneScan == true)
 				{
 					Destroy(paymentList[0]);
 					paymentList.RemoveAt(0);
