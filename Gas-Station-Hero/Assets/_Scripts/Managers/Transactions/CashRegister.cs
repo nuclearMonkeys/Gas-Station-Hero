@@ -73,7 +73,7 @@ public class CashRegister : MonoBehaviour, IDropHandler
                     draggable.CanBeGiven = true;
                 }
                 scannedItems.RemoveRange(0, scannedItems.Count);
-				oneScan = false;
+				
             }
             
         }
