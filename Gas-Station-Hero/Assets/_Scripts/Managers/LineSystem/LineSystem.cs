@@ -115,9 +115,9 @@ public class LineSystem : MonoBehaviour
 	
 	public void customerOrder()
 	{
-		if(customers[0]!= null && !customers[0].GetComponent<InLineCustomerBehavior>().moving && !customers[0].GetComponent<InLineCustomerBehavior>().ordering)
+		if(customers[totalCustomer % maxNumCustomer]!= null && !customers[totalCustomer % maxNumCustomer].GetComponent<InLineCustomerBehavior>().moving && !customers[totalCustomer % maxNumCustomer].GetComponent<InLineCustomerBehavior>().ordering)
 		{
-			customers[0].GetComponent<InLineCustomerBehavior>().ordering = true;
+			customers[totalCustomer % maxNumCustomer].GetComponent<InLineCustomerBehavior>().ordering = true;
 			startTransaction();
 		}
 	}

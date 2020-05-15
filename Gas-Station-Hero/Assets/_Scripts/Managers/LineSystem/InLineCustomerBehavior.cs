@@ -21,6 +21,7 @@ public class InLineCustomerBehavior : MonoBehaviour
         vector.x = -speed;
         vector.y = 0;
         leaving = true;
+		ordering = false;
         Destroy(gameObject, 5);
     }
 
