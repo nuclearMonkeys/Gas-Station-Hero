@@ -11,11 +11,18 @@ public class LineSystem : MonoBehaviour
 	public GameObject[] items = new GameObject[10];
 
     public GameObject customerPrefab;
-	public GameObject itemPrefab;
+	public GameObject chips;
     public GameObject customerSpawnPoint;
 	public GameObject customer;
 	public GameObject panel;
-	public GameObject cash;
+	public GameObject oneCent;
+	public GameObject fiveCent;
+	public GameObject tenCent;
+	public GameObject quarterCent;
+	public GameObject oneDollar;
+	public GameObject fiveDollar;
+	public GameObject tenDollar;
+	public GameObject twentyDollar;
 	public GameObject register;
 	
 
@@ -117,72 +124,74 @@ public class LineSystem : MonoBehaviour
 	
 	public void startTransaction()
 	{
-		Debug.Log("Start transaction");
 		customer.SetActive(true);
 		float totalPrice = 0;
-		Debug.Log("Before for loop");
 		for(int i = 0; i < (int)Random.Range(1.0f, 4.0f); i++)
 		{
-			GameObject t = Instantiate(itemPrefab, panel.transform);
+			GameObject t = Instantiate(chips, panel.transform);
+			/*
 			float temp = (float)System.Math.Round(Random.Range(1.04f, 1.07f),2);
 			t.transform.GetChild(0).GetComponent<Barcode>().price = temp;
+			*/
 			t.name = "Item";
-			totalPrice += temp;
+			totalPrice += t.transform.GetChild(1).GetComponent<Barcode>().price;
 			items[i] = t;
 		}
-		Debug.Log("Reach");
 		float givenMoney = 0;
-		while(givenMoney != totalPrice)
+		Debug.Log(givenMoney);
+		Debug.Log(totalPrice);
+		
+		while(givenMoney < totalPrice)
 		{
-			if(totalPrice-givenMoney >= 10)
+			if(totalPrice-givenMoney >= 20)
 			{
-				GameObject t = Instantiate(cash, panel.transform);
-				t.GetComponent<CashPayment>().setAmount(10);
+				GameObject t = Instantiate(twentyDollar, panel.transform);
+				givenMoney += 20;
+				register.GetComponent<CashRegister>().paymentList.Add(t);
+			}
+			else if(totalPrice-givenMoney >= 10)
+			{
+				GameObject t = Instantiate(tenDollar, panel.transform);
 				givenMoney += 10;
 				register.GetComponent<CashRegister>().paymentList.Add(t);
 			}
 			else if(totalPrice-givenMoney >= 5)
 			{
-				GameObject t = Instantiate(cash, panel.transform);
-				t.GetComponent<CashPayment>().setAmount(5);
+				GameObject t = Instantiate(fiveDollar, panel.transform);
 				givenMoney += 5;
 				register.GetComponent<CashRegister>().paymentList.Add(t);
 			}
 			else if(totalPrice-givenMoney >= 1)
 			{
-				GameObject t = Instantiate(cash, panel.transform);
-				t.GetComponent<CashPayment>().setAmount(1);
+				GameObject t = Instantiate(oneDollar, panel.transform);
 				givenMoney += 1;
 				register.GetComponent<CashRegister>().paymentList.Add(t);
 			}
-			else if(totalPrice-givenMoney >= .25)
+			else if(totalPrice-givenMoney >= .25f)
 			{
-				GameObject t = Instantiate(cash, panel.transform);
-				t.GetComponent<CashPayment>().setAmount(.25f);
+				GameObject t = Instantiate(quarterCent, panel.transform);
 				givenMoney += .25f;
 				register.GetComponent<CashRegister>().paymentList.Add(t);
 			}
-			else if(totalPrice-givenMoney >= .1)
+			else if(totalPrice-givenMoney >= .1f)
 			{
-				GameObject t = Instantiate(cash, panel.transform);
-				t.GetComponent<CashPayment>().setAmount(.1f);
+				GameObject t = Instantiate(tenCent, panel.transform);
 				givenMoney += .1f;
 				register.GetComponent<CashRegister>().paymentList.Add(t);
 			}
-			else if(totalPrice-givenMoney >= .05)
+			else if(totalPrice-givenMoney >= .05f)
 			{
-				GameObject t = Instantiate(cash, panel.transform);
-				t.GetComponent<CashPayment>().setAmount(.05f);
+				GameObject t = Instantiate(fiveCent, panel.transform);
 				givenMoney += .05f;
 				register.GetComponent<CashRegister>().paymentList.Add(t);
 			}
 			else// if(totalPrice >= .01)
 			{
-				GameObject t = Instantiate(cash, panel.transform);
-				t.GetComponent<CashPayment>().setAmount(.01f);
+				GameObject t = Instantiate(oneCent, panel.transform);
 				givenMoney += .01f;
 				register.GetComponent<CashRegister>().paymentList.Add(t);
 			}
 		}
+		
 	}
 }

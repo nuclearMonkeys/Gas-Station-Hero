@@ -70,7 +70,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     }
 
 
-
     public void OnDrag(PointerEventData eventData) 
     {
         transform.position = eventData.position - CursorOffset;
