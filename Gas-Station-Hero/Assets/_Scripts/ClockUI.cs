@@ -11,7 +11,8 @@ public class ClockUI : MonoBehaviour
     private float day;
     public float hourFloat;
     public bool dayEnded = false;
-    // Start is called before the first frame update
+    public GameObject closeUpButton;
+
     void Start()
     {
         clockMinuteHandTransform = transform.Find("minuteHand");
@@ -33,15 +34,22 @@ public class ClockUI : MonoBehaviour
         clockHourHandTransform.eulerAngles = new Vector3(0,0, -dayNormalized * rotationDegreesPerDay);
         
         hourFloat = Mathf.Floor(dayNormalized * hoursPerDay);
-        
-
     }
+
     // Update is called once per frame
     void Update() 
     {
-        if(dayEnded == false) {
+        if(dayEnded == false) { 
             clockMovement();
-            if(12f > hourFloat && hourFloat >= 8f){
+                                 // Adjust to 1f for debug 
+            if(12f > hourFloat && hourFloat >= 8f)
+            {
+                // crossfadeImage.SetActive(true);
+                // crossfadeImage.GetComponent<CanvasGroup>().alpha = 0;
+                // Color c = crossfadeImage.GetComponent<SpriteRenderer>().color;
+                // c.a = 0;
+                // crossfadeImage.GetComponent<SpriteRenderer>().color = c; 
+                closeUpButton.SetActive(true);
                 lineManager.GetComponent<LineSystem>().endDay();
                 dayEnded = true;
             }
