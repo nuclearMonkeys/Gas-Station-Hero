@@ -61,6 +61,7 @@ public class Reciept : Draggable
 			transform.position = originalLocation;
 			register.GetComponent<CashRegister>().totalPrice = 0;
 			statsHolder.GetComponent<Stats>().customersServed += 1;
+			register.GetComponent<CashRegister>().oneScan = false;
         }
 		
         // This will cause an error if no customer is in front
