@@ -1,15 +1,10 @@
-- Peter: Look Holly!
-- Peter: I can speak!
-- Holly: That's great, Peter!
-- Holly: I'm so proud of you!
-- ?:
-   - 1:
-      - Are you OK?
-      - Peter: Holly, are you fine?
-      - Holly: Yes, everything is fine, thanks.
-      - EDO: EDO
-   - 2:
-      - Have you ever seen Willams?
-      - Peter: Have you happen to see Williams passing by?
-      - Holly: No, I haven't. Sorry.
-      - EDO: EDO
+- "Player": "Welcome! How can I help you"
+- "Player": "Do you have any discounts"
+- "?": 
+  - 1:
+      - "No, I'm sorry we don't have any at the moment"
+      - "Customer": "Hurmpf!"
+  - 2:
+      - "Yes! we have a Sushi Saturday! buy 1 get 1 free"
+      - "Customer": "Umm its ok thanks"
+
