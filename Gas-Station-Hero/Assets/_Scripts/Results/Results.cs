@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Results : MonoBehaviour
 {
+
 	[Header("Prefabs")]
 	public GameObject characterInfoPrefab;
 
@@ -24,16 +26,27 @@ public class Results : MonoBehaviour
 	public GameObject utilitiesText;
 	public GameObject savingsText;
 	public GameObject dayText;
-
-
+	public GameObject crossfadeImage;
+	public GameObject buttonNextDay;
 
     void Start()
     {
+		crossfadeImage.SetActive(false);
+		salaryText.SetActive(false);
+		rentText.SetActive(false);
+		utilitiesText.SetActive(false);
+		savingsText.SetActive(false);
+		dayText.SetActive(false);
+		buttonNextDay.SetActive(false);
+
+		StartCoroutine(DisplayResultsCoroutine());
+
 		for(int i = 0; i < characters.Count; i++) 
 		{
 			GameObject charInfoClone = Instantiate(characterInfoPrefab);
+			charInfoClone.transform.SetSiblingIndex(0);
 			// charInfoClone.transform.parent = canvas.transform;
-			charInfoClone.transform.SetParent(canvas.transform, false);
+			// charInfoClone.transform.SetParent(canvas.transform, false);
 			CharacterInfo charInfo = charInfoClone.GetComponent<CharacterInfo>();
 			BaseCharacter baseCharacter = characters[i].GetComponent<BaseCharacter>();
 
@@ -44,6 +57,40 @@ public class Results : MonoBehaviour
 			charInfo.pointSlider.maxValue = baseCharacter.pointsToNextLevel;
 			charInfo.pointSlider.value = baseCharacter.points;
 		}
+	}
+
+	// Displays Stats one at a time for every .3 seconds
+	private IEnumerator DisplayResultsCoroutine() 
+	{
+		// crossfadeImage.GetComponent<Animator>().SetBool("fadeOut", true);
+		// yield return new WaitForSecondsRealtime(1.7f);
+		// crossfadeImage.SetActive(false);
+		yield return new WaitForSecondsRealtime(.3f);
+		dayText.SetActive(true);
+		yield return new WaitForSecondsRealtime(.3f);
+		salaryText.SetActive(true);
+		yield return new WaitForSecondsRealtime(.3f);
+		rentText.SetActive(true);
+		yield return new WaitForSecondsRealtime(.3f);
+		utilitiesText.SetActive(true);
+		yield return new WaitForSecondsRealtime(.3f);
+		savingsText.SetActive(true);
+		yield return new WaitForSecondsRealtime(.3f);
+		buttonNextDay.SetActive(true);
+		yield return new WaitForSecondsRealtime(.3f);
+	}
+
+	public void ToMainScene() 
+	{
+		StartCoroutine(ToMainSceneCoroutine());
+	}
+
+	private IEnumerator ToMainSceneCoroutine() 
+	{
+		crossfadeImage.SetActive(true);
+		crossfadeImage.GetComponent<Animator>().SetBool("fadeIn", true);
+		yield return new WaitForSecondsRealtime(1.7f);
+		SceneManager.LoadScene("MainScene");
 	}
 
     // Update is called once per frame
