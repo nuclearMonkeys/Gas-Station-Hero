@@ -7,9 +7,9 @@ using UnityEngine.EventSystems;
 
 public class Reciept : Draggable
 {
-	public GameObject register;
-	public GameObject line_manager;
-	public GameObject statsHolder;
+	// public GameObject register;
+	// public GameObject line_manager;
+	// public GameObject statsHolder;
 	
 	public Vector3 originalLocation;
 	
@@ -39,7 +39,7 @@ public class Reciept : Draggable
 	
 	void Update()
 	{
-		if(register.GetComponent<CashRegister>().paymentList.Count == 0 && line_manager.GetComponent<LineSystem>().items[0] == null && register.GetComponent<CashRegister>().oneScan)
+		if(CashRegister.instance.paymentList.Count == 0 && LineSystem.instance.items[0] == null && CashRegister.instance.oneScan)
 		{
 			CanBeGiven = true;
 		}
@@ -59,9 +59,9 @@ public class Reciept : Draggable
             //print("you're an allstar");
             LineSystem.instance.MoveLine();
 			transform.position = originalLocation;
-			register.GetComponent<CashRegister>().totalPrice = 0;
-			statsHolder.GetComponent<Stats>().customersServed += 1;
-			register.GetComponent<CashRegister>().oneScan = false;
+			CashRegister.instance.totalPrice = 0;
+		    Stats.instance.customersServed += 1;
+			CashRegister.instance.oneScan = false;
         }
 		
         // This will cause an error if no customer is in front

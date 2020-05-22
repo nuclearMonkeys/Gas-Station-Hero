@@ -18,7 +18,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     protected Vector2 CursorOffset;
 
     // This is weird practice, but this is specifically used for reciepts
-    public virtual void Update() 
+    // public virtual void Update() 
+    private void Update() 
     {
         
         if (enter)

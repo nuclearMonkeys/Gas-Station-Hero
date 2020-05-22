@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
+	public static Stats instance;
+
 	public int knowledge;
 	int knowledgeCap;
 	public int knowledgeExp;
@@ -17,9 +19,14 @@ public class Stats : MonoBehaviour
 	int kacperCap;
 	public int customersServed;
 	public int savings;
+
     // Start is called before the first frame update
     void Start()
     {
+		if (instance)
+			Destroy(this.gameObject);
+		instance = this;
+
         knowledge = 1;
 		knowledgeCap = 5;
 		knowledgeExp = 0;

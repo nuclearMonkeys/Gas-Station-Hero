@@ -23,6 +23,7 @@ public class LineSystem : MonoBehaviour
 	public GameObject fiveDollar;
 	public GameObject tenDollar;
 	public GameObject twentyDollar;
+	public GameObject reciept;
 	public GameObject register;
 	
 
@@ -126,6 +127,9 @@ public class LineSystem : MonoBehaviour
 	{
 		customer.SetActive(true);
 		float totalPrice = 0;
+
+		Instantiate(reciept, panel.transform);
+
 		for(int i = 0; i < (int)Random.Range(1.0f, 4.0f); i++)
 		{
 			GameObject t = Instantiate(chips, panel.transform);

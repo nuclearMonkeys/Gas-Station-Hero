@@ -8,6 +8,7 @@ public class CashRegister : MonoBehaviour, IDropHandler
 {
     public Text registerText;
 
+    public static CashRegister instance;
 
     public float TOTAL_SALES_DAILY;             //total amount of payment recieved today
     public float totalPrice;                    //current transaction total
@@ -83,6 +84,10 @@ public class CashRegister : MonoBehaviour, IDropHandler
 
     void Start()
     {
+        if(instance)
+            Destroy(this.gameObject);
+        instance = this;
+
         StartNewTransAction();
         TOTAL_SALES_DAILY = 0;
     }
