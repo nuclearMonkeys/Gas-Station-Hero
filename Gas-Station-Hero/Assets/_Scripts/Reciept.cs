@@ -62,6 +62,7 @@ public class Reciept : Draggable
 			CashRegister.instance.totalPrice = 0;
 		    Stats.instance.customersServed += 1;
 			CashRegister.instance.oneScan = false;
+			LineSystem.instance.customer.SetActive(false);
         }
 		
         // This will cause an error if no customer is in front

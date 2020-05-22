@@ -31,6 +31,6 @@ public class KanpurWarningManager : MonoBehaviour
 
         // current command to get new customer is space
         // new dialog will be loaded only if space is pressed 
-        }  
+        
     }
 }

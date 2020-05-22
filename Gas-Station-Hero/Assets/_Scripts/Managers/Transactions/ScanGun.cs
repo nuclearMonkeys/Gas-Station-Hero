@@ -8,7 +8,7 @@ public class ScanGun : MonoBehaviour
     public void scanning(float price, GameObject item)
     {
         REGISTER.scanned(price);
-
+		item.GetComponent<Draggable>().CanBeGiven = true;
         REGISTER.scannedItems.Add(item.GetComponent<Draggable>());
     }
    
