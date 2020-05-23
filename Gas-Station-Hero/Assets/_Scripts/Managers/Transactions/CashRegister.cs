@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class CashRegister : MonoBehaviour, IDropHandler
 {
+
     public Text registerText;
 
     public static CashRegister instance;

@@ -62,6 +62,8 @@ public class Reciept : Draggable
 			CashRegister.instance.totalPrice = 0;
 		    Stats.instance.customersServed += 1;
 			CashRegister.instance.oneScan = false;
+            KanpurWarningManager.instance.CheckTransaction(true, true);
+            Destroy(this.gameObject);
         }
 		
         // This will cause an error if no customer is in front
