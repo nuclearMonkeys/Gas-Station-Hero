@@ -64,6 +64,5 @@ public class KanpurWarningManager : MonoBehaviour
         CheckTransaction(Input.GetMouseButtonDown(1));
 
         // current command to get new customer is space
-        // new dialog will be loaded only if space is pressed  
     }
 }

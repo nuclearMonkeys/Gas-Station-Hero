@@ -12,6 +12,8 @@ public class LineSystem : MonoBehaviour
 
     public GameObject customerPrefab;
 	public GameObject chips;
+	public GameObject sodaBottle;
+	public GameObject sodaCan;
     public GameObject customerSpawnPoint;
 	public GameObject customer;
 	public GameObject panel;
@@ -130,13 +132,56 @@ public class LineSystem : MonoBehaviour
 
 		Instantiate(reciept, panel.transform);
 
-		for(int i = 0; i < (int)Random.Range(1.0f, 4.0f); i++)
+		for(int i = 0; i < (int)Random.Range(0.0f, 4.0f); i++)
 		{
 			GameObject t = Instantiate(chips, panel.transform);
-			/*
-			float temp = (float)System.Math.Round(Random.Range(1.04f, 1.07f),2);
-			t.transform.GetChild(0).GetComponent<Barcode>().price = temp;
-			*/
+			float temp;
+			if((int)Random.Range(0.0f, 2.0f) == 0)
+			{
+				temp = 1.0f;
+			}
+			else
+			{
+				temp = 1.50f;
+				//t.GetComponent<Image>().color = new Color32(255,255,255,100);
+			}
+			t.transform.GetChild(1).GetComponent<Barcode>().price = temp;
+			t.name = "Item";
+			totalPrice += t.transform.GetChild(1).GetComponent<Barcode>().price;
+			items[i] = t;
+		}
+		for(int i = 0; i < (int)Random.Range(0.0f, 3.0f); i++)
+		{
+			GameObject t = Instantiate(sodaBottle, panel.transform);
+			float temp;
+			if((int)Random.Range(0.0f, 2.0f) == 0)
+			{
+				temp = 2.0f;
+			}
+			else
+			{
+				temp = 2.25f;
+				//t.GetComponent<Image>().color = new Color32(255,0,0,100);
+			}
+			t.transform.GetChild(1).GetComponent<Barcode>().price = temp;
+			t.name = "Item";
+			totalPrice += t.transform.GetChild(1).GetComponent<Barcode>().price;
+			items[i] = t;
+		}
+		for(int i = 0; i < (int)Random.Range(0.0f, 3.0f); i++)
+		{
+			GameObject t = Instantiate(sodaCan, panel.transform);
+			float temp;
+			if((int)Random.Range(0.0f, 2.0f) == 0)
+			{
+				temp = 1.0f;
+			}
+			else
+			{
+				temp = 1.25f;
+				//t.GetComponent<Image>().color = new Color32(255,0,0,100);
+			}
+			t.transform.GetChild(1).GetComponent<Barcode>().price = temp;
 			t.name = "Item";
 			totalPrice += t.transform.GetChild(1).GetComponent<Barcode>().price;
 			items[i] = t;

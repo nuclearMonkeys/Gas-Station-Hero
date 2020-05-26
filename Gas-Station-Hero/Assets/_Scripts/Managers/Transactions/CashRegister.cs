@@ -69,11 +69,11 @@ public class CashRegister : MonoBehaviour, IDropHandler
 					Destroy(paymentList[0]);
 					paymentList.RemoveAt(0);
 				}
-                FullPaymentRecieved = true;
+                FullPaymentRecieved = true;/*
                 foreach(Draggable draggable in scannedItems)
                 {
                     draggable.CanBeGiven = true;
-                }
+                }*/
                 scannedItems.RemoveRange(0, scannedItems.Count);
 				
             }
