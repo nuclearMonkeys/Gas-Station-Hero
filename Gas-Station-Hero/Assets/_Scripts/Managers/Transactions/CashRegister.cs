@@ -14,13 +14,14 @@ public class CashRegister : MonoBehaviour, IDropHandler
     public float TOTAL_SALES_DAILY;             //total amount of payment recieved today
     public float totalPrice;                    //current transaction total
 
-    private float change;
+    public float change;
     private bool FullPaymentRecieved = false;
     private const int BufferSize = 5;
     public List<Draggable> scannedItems = new List<Draggable>();
     public float[] scans = new float[BufferSize];
 	public List<GameObject> paymentList = new List<GameObject>();
 	public bool oneScan = false;
+	public int scannedPaymentCount = 0;
 	
     public void scanned(float price)
     {
@@ -57,7 +58,7 @@ public class CashRegister : MonoBehaviour, IDropHandler
             change -= CashPayment.getAmount();
 			payment.SetActive(false);
             UpdateRegisterDisplay(change);
-
+			scannedPaymentCount += 1;
             
         }
     }
