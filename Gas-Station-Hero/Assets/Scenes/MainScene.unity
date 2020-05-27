@@ -276,6 +276,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3127438810387284821, guid: 91c70f3b01b704a479843d4c2e25a8af,
         type: 3}
+      propertyPath: items.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127438810387284821, guid: 91c70f3b01b704a479843d4c2e25a8af,
+        type: 3}
       propertyPath: LineSpot.Array.data[1].y
       value: -3
       objectReference: {fileID: 0}
@@ -894,6 +899,17 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 713542978135170115, guid: ba95b88a11a3a0f4684a2a2fdd6743de,
+        type: 3}
+      propertyPath: receipt
+      value: 
+      objectReference: {fileID: 6424649877653559761, guid: 852e01ac509203f45b7d6e83cc002344,
+        type: 3}
+    - target: {fileID: 713542978135170115, guid: ba95b88a11a3a0f4684a2a2fdd6743de,
+        type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 1041492071}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba95b88a11a3a0f4684a2a2fdd6743de, type: 3}
 --- !u!1001 &556163591

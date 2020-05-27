@@ -9,6 +9,8 @@ public class LineSystem : MonoBehaviour
     public GameObject[] customers = new GameObject[maxNumCustomer];
     public Vector2[] LineSpot = new Vector2[maxNumCustomer];
 	public GameObject[] items = new GameObject[10];
+	public int totalItems = 0;
+	public bool itemsEmpty;
 
     public GameObject customerPrefab;
 	public GameObject chips;
@@ -55,6 +57,14 @@ public class LineSystem : MonoBehaviour
             print("");
             endDay();
         }
+		itemsEmpty = true;
+		for(int i = 0; i < items.Length; i++)
+		{
+			if(items[i] != null)
+			{
+				itemsEmpty = false;
+			}
+		}
     }
 
     public void startDay()
@@ -132,7 +142,7 @@ public class LineSystem : MonoBehaviour
 
 		Instantiate(reciept, panel.transform);
 
-		for(int i = 0; i < (int)Random.Range(0.0f, 4.0f); i++)
+		for(int i = 0; i < (int)Random.Range(1.0f, 4.0f); i++)
 		{
 			GameObject t = Instantiate(chips, panel.transform);
 			float temp;
@@ -148,7 +158,8 @@ public class LineSystem : MonoBehaviour
 			t.transform.GetChild(1).GetComponent<Barcode>().price = temp;
 			t.name = "Item";
 			totalPrice += t.transform.GetChild(1).GetComponent<Barcode>().price;
-			items[i] = t;
+			items[totalItems] = t;
+			totalItems += 1;
 		}
 		for(int i = 0; i < (int)Random.Range(0.0f, 3.0f); i++)
 		{
@@ -166,7 +177,8 @@ public class LineSystem : MonoBehaviour
 			t.transform.GetChild(1).GetComponent<Barcode>().price = temp;
 			t.name = "Item";
 			totalPrice += t.transform.GetChild(1).GetComponent<Barcode>().price;
-			items[i] = t;
+			items[totalItems] = t;
+			totalItems += 1;
 		}
 		for(int i = 0; i < (int)Random.Range(0.0f, 3.0f); i++)
 		{
@@ -184,7 +196,8 @@ public class LineSystem : MonoBehaviour
 			t.transform.GetChild(1).GetComponent<Barcode>().price = temp;
 			t.name = "Item";
 			totalPrice += t.transform.GetChild(1).GetComponent<Barcode>().price;
-			items[i] = t;
+			items[totalItems] = t;
+			totalItems += 1;
 		}
 		float givenMoney = 0;
 		Debug.Log(givenMoney);

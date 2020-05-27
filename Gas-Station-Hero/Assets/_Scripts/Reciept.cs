@@ -32,20 +32,20 @@ public class Reciept : Draggable
     {
         //print(LineSystem.instance);
         //print("Hey now");
-		canBeGiven = false;
+		CanBeGiven = false;
 		originalLocation = transform.position;
 		
     }
 	
 	void Update()
 	{
-		if(CashRegister.instance.paymentList.Count == 0 && LineSystem.instance.items[0] == null && CashRegister.instance.oneScan)
+		if(CashRegister.instance.paymentList.Count == 0 && LineSystem.instance.itemsEmpty && CashRegister.instance.oneScan)
 		{
-			canBeGiven = true;
+			CanBeGiven = true;
 		}
 		else
 		{
-			canBeGiven = false;
+			CanBeGiven = false;
 		}
 	}
 
@@ -54,9 +54,7 @@ public class Reciept : Draggable
         //base.OnBeginDrag(eventData);
 		transform.SetParent(parent);
 		GetComponent<CanvasGroup>().blocksRaycasts = true;
-
-        print(isOverCounter, );
-        if (isOverCounter && canBeGiven && !isTaken)
+        if (isOverCounter && CanBeGiven && !isTaken)
         {
             //print("you're an allstar");
             LineSystem.instance.MoveLine();
@@ -64,7 +62,7 @@ public class Reciept : Draggable
 			CashRegister.instance.totalPrice = 0;
 		    Stats.instance.customersServed += 1;
 			CashRegister.instance.oneScan = false;
-
+			LineSystem.instance.totalItems = 0;
             KanpurWarningManager.instance.CheckTransaction(true, true);
             LineSystem.instance.customer.SetActive(false);
             Destroy(this.gameObject);

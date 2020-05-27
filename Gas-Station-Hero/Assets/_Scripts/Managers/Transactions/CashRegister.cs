@@ -31,8 +31,8 @@ public class CashRegister : MonoBehaviour, IDropHandler
         scans[0] = price;
 		oneScan = true;
         totalPrice += price;
-        change = totalPrice;
-        UpdateRegisterDisplay(totalPrice);
+        change += price;
+        UpdateRegisterDisplay(change);
     }
     private void UpdateRegisterDisplay(float price)
     {
@@ -55,28 +55,9 @@ public class CashRegister : MonoBehaviour, IDropHandler
         if (CashPayment)
         {
             change -= CashPayment.getAmount();
+			payment.SetActive(false);
             UpdateRegisterDisplay(change);
 
-            if (change <= 0)        //when the entire amount due is paid
-            {
-                TOTAL_SALES_DAILY += totalPrice;
-                for (int i = 0; i < BufferSize; i++)
-                {
-                    scans[i] = 0;
-                }
-                while (paymentList.Count != 0 && oneScan == true)
-				{
-					Destroy(paymentList[0]);
-					paymentList.RemoveAt(0);
-				}
-                FullPaymentRecieved = true;/*
-                foreach(Draggable draggable in scannedItems)
-                {
-                    draggable.CanBeGiven = true;
-                }*/
-                scannedItems.RemoveRange(0, scannedItems.Count);
-				
-            }
             
         }
     }
@@ -106,5 +87,25 @@ public class CashRegister : MonoBehaviour, IDropHandler
             }
             scans[BufferSize - 1] = 0;
         }
+		if (change <= 0)        //when the entire amount due is paid
+            {
+                TOTAL_SALES_DAILY += totalPrice;
+                for (int i = 0; i < BufferSize; i++)
+                {
+                    scans[i] = 0;
+                }
+                while (paymentList.Count != 0 && oneScan == true)
+				{
+					Destroy(paymentList[0]);
+					paymentList.RemoveAt(0);
+				}
+                FullPaymentRecieved = true;/*
+                foreach(Draggable draggable in scannedItems)
+                {
+                    draggable.CanBeGiven = true;
+                }*/
+                scannedItems.RemoveRange(0, scannedItems.Count);
+				
+            }
     }
 }

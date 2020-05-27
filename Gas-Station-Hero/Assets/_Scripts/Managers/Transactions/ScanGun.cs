@@ -7,9 +7,13 @@ public class ScanGun : MonoBehaviour
     public  CashRegister REGISTER;
     public void scanning(float price, GameObject item)
     {
-        REGISTER.scanned(price);
-		item.GetComponent<Draggable>().CanBeGiven = true;
-        REGISTER.scannedItems.Add(item.GetComponent<Draggable>());
+		if(!item.transform.GetChild(1).GetComponent<Barcode>().alreadyScanned)
+		{
+			REGISTER.scanned(price);
+			item.transform.GetChild(1).GetComponent<Barcode>().alreadyScanned = true;
+			item.GetComponent<Draggable>().CanBeGiven = true;
+			REGISTER.scannedItems.Add(item.GetComponent<Draggable>());
+		}
     }
    
 

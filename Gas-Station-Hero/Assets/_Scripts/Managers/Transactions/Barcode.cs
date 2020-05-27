@@ -7,6 +7,7 @@ public class Barcode : MonoBehaviour, IDropHandler
 {
     public GameObject CounterManager;
     public float price;
+	public bool alreadyScanned = false;
     // Start is called before the first frame update
     void Start()
     {
