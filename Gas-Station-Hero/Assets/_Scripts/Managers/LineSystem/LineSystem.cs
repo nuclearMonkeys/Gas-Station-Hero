@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class LineSystem : MonoBehaviour
 {
     public static LineSystem instance;
@@ -153,7 +154,7 @@ public class LineSystem : MonoBehaviour
 			else
 			{
 				temp = 1.50f;
-				//t.GetComponent<Image>().color = new Color32(255,255,255,100);
+				t.transform.GetChild(0).GetComponent<Image>().color = new Color32(255,0,0,255);
 			}
 			t.transform.GetChild(1).GetComponent<Barcode>().price = temp;
 			t.name = "Item";
@@ -172,7 +173,7 @@ public class LineSystem : MonoBehaviour
 			else
 			{
 				temp = 2.25f;
-				//t.GetComponent<Image>().color = new Color32(255,0,0,100);
+				t.transform.GetChild(0).GetComponent<Image>().color = new Color32(255,0,0,255);
 			}
 			t.transform.GetChild(1).GetComponent<Barcode>().price = temp;
 			t.name = "Item";
@@ -191,7 +192,7 @@ public class LineSystem : MonoBehaviour
 			else
 			{
 				temp = 1.25f;
-				//t.GetComponent<Image>().color = new Color32(255,0,0,100);
+				t.transform.GetChild(0).GetComponent<Image>().color = new Color32(255,0,0,255);
 			}
 			t.transform.GetChild(1).GetComponent<Barcode>().price = temp;
 			t.name = "Item";
