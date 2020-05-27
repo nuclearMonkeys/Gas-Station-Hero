@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class LineSystem : MonoBehaviour
 {
     public static LineSystem instance;
@@ -153,7 +154,7 @@ public class LineSystem : MonoBehaviour
 			else
 			{
 				temp = 1.50f;
-				//t.GetComponent<Image>().color = new Color32(255,255,255,100);
+				t.transform.GetChild(0).GetComponent<Image>().color = new Color32(255,0,0,255);
 			}
 			t.transform.GetChild(1).GetComponent<Barcode>().price = temp;
 			t.name = "Item";
@@ -172,7 +173,7 @@ public class LineSystem : MonoBehaviour
 			else
 			{
 				temp = 2.25f;
-				//t.GetComponent<Image>().color = new Color32(255,0,0,100);
+				t.transform.GetChild(0).GetComponent<Image>().color = new Color32(255,0,0,255);
 			}
 			t.transform.GetChild(1).GetComponent<Barcode>().price = temp;
 			t.name = "Item";
@@ -191,7 +192,7 @@ public class LineSystem : MonoBehaviour
 			else
 			{
 				temp = 1.25f;
-				//t.GetComponent<Image>().color = new Color32(255,0,0,100);
+				t.transform.GetChild(0).GetComponent<Image>().color = new Color32(255,0,0,255);
 			}
 			t.transform.GetChild(1).GetComponent<Barcode>().price = temp;
 			t.name = "Item";
@@ -202,56 +203,113 @@ public class LineSystem : MonoBehaviour
 		float givenMoney = 0;
 		Debug.Log(givenMoney);
 		Debug.Log(totalPrice);
-		
-		while(givenMoney < totalPrice)
+		if((int)Random.Range(0.0f, 2.0f) == 0)
 		{
-			if(totalPrice-givenMoney >= 20)
+			while(givenMoney < totalPrice)
 			{
-				GameObject t = Instantiate(twentyDollar, panel.transform);
-				givenMoney += 20;
-				register.GetComponent<CashRegister>().paymentList.Add(t);
+				if(totalPrice-givenMoney >= 20)
+				{
+					GameObject t = Instantiate(twentyDollar, panel.transform);
+					givenMoney += 20;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
+				else if(totalPrice-givenMoney >= 10)
+				{
+					GameObject t = Instantiate(tenDollar, panel.transform);
+					givenMoney += 10;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
+				else if(totalPrice-givenMoney >= 5)
+				{
+					GameObject t = Instantiate(fiveDollar, panel.transform);
+					givenMoney += 5;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
+				else if(totalPrice-givenMoney >= 1)
+				{
+					GameObject t = Instantiate(oneDollar, panel.transform);
+					givenMoney += 1;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
+				else if(totalPrice-givenMoney >= .25f)
+				{
+					GameObject t = Instantiate(quarterCent, panel.transform);
+					givenMoney += .25f;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
+				else if(totalPrice-givenMoney >= .1f)
+				{
+					GameObject t = Instantiate(tenCent, panel.transform);
+					givenMoney += .1f;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
+				else if(totalPrice-givenMoney >= .05f)
+				{
+					GameObject t = Instantiate(fiveCent, panel.transform);
+					givenMoney += .05f;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
+				else// if(totalPrice >= .01)
+				{
+					GameObject t = Instantiate(oneCent, panel.transform);
+					givenMoney += .01f;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
 			}
-			else if(totalPrice-givenMoney >= 10)
+		}
+		else
+		{
+			givenMoney = givenMoney + .50f;;
+			while(givenMoney < totalPrice)
 			{
-				GameObject t = Instantiate(tenDollar, panel.transform);
-				givenMoney += 10;
-				register.GetComponent<CashRegister>().paymentList.Add(t);
-			}
-			else if(totalPrice-givenMoney >= 5)
-			{
-				GameObject t = Instantiate(fiveDollar, panel.transform);
-				givenMoney += 5;
-				register.GetComponent<CashRegister>().paymentList.Add(t);
-			}
-			else if(totalPrice-givenMoney >= 1)
-			{
-				GameObject t = Instantiate(oneDollar, panel.transform);
-				givenMoney += 1;
-				register.GetComponent<CashRegister>().paymentList.Add(t);
-			}
-			else if(totalPrice-givenMoney >= .25f)
-			{
-				GameObject t = Instantiate(quarterCent, panel.transform);
-				givenMoney += .25f;
-				register.GetComponent<CashRegister>().paymentList.Add(t);
-			}
-			else if(totalPrice-givenMoney >= .1f)
-			{
-				GameObject t = Instantiate(tenCent, panel.transform);
-				givenMoney += .1f;
-				register.GetComponent<CashRegister>().paymentList.Add(t);
-			}
-			else if(totalPrice-givenMoney >= .05f)
-			{
-				GameObject t = Instantiate(fiveCent, panel.transform);
-				givenMoney += .05f;
-				register.GetComponent<CashRegister>().paymentList.Add(t);
-			}
-			else// if(totalPrice >= .01)
-			{
-				GameObject t = Instantiate(oneCent, panel.transform);
-				givenMoney += .01f;
-				register.GetComponent<CashRegister>().paymentList.Add(t);
+				if(totalPrice-givenMoney >= 20)
+				{
+					GameObject t = Instantiate(twentyDollar, panel.transform);
+					givenMoney += 20;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
+				else if(totalPrice-givenMoney >= 10)
+				{
+					GameObject t = Instantiate(tenDollar, panel.transform);
+					givenMoney += 10;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
+				else if(totalPrice-givenMoney >= 5)
+				{
+					GameObject t = Instantiate(fiveDollar, panel.transform);
+					givenMoney += 5;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
+				else if(totalPrice-givenMoney >= 1)
+				{
+					GameObject t = Instantiate(oneDollar, panel.transform);
+					givenMoney += 1;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
+				else if(totalPrice-givenMoney >= .25f)
+				{
+					GameObject t = Instantiate(quarterCent, panel.transform);
+					givenMoney += .25f;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
+				else if(totalPrice-givenMoney >= .1f)
+				{
+					GameObject t = Instantiate(tenCent, panel.transform);
+					givenMoney += .1f;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
+				else if(totalPrice-givenMoney >= .05f)
+				{
+					GameObject t = Instantiate(fiveCent, panel.transform);
+					givenMoney += .05f;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
+				else// if(totalPrice >= .01)
+				{
+					GameObject t = Instantiate(oneCent, panel.transform);
+					givenMoney += .01f;
+					register.GetComponent<CashRegister>().paymentList.Add(t);
+				}
 			}
 		}
 		

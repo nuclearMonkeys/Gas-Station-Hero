@@ -58,6 +58,8 @@ public class Reciept : Draggable
         {
             //print("you're an allstar");
             LineSystem.instance.MoveLine();
+			CashRegister.instance.scannedPaymentCount = 0;
+			DiscountBarcode.instance.alreadyScanned = false;
 			transform.position = originalLocation;
 			CashRegister.instance.totalPrice = 0;
 		    Stats.instance.customersServed += 1;
