@@ -22,7 +22,7 @@ public class GenerateFace : MonoBehaviour
         {
             do
             {
-                random = Random.Range((int)0, 7);
+                random = Random.Range((int)0, 8);
             } while (random == featureIndex[i]);
             featureIndex[i] = random;
         }
@@ -31,7 +31,7 @@ public class GenerateFace : MonoBehaviour
         transform.GetChild(1).GetComponent<Image>().sprite = EyeSource[featureIndex[1]];
         transform.GetChild(2).GetComponent<Image>().sprite = MouthSource[featureIndex[2]];
         transform.GetChild(3).GetComponent<Image>().sprite = HairSource[featureIndex[3]];
-        random = Random.Range((int)0, 9);
+        random = Random.Range((int)0, 10);
         switch (random)
         {
             case 0:
@@ -72,8 +72,8 @@ public class GenerateFace : MonoBehaviour
         hairColors[1] = new Color(0.2f, 0.1f, 0.1f);//brown
         hairColors[2] = new Color(0.2f, 0.2f, 0.2f);//black
         hairColors[3] = new Color(0.7f, 0.35f, 0);  //orange
-        hairColors[4] = new Color(1, 1, 0.5f);      //blue
-        hairColors[5] = new Color(1, 1, 0.5f);      //green
+        hairColors[4] = new Color(0.5f, 0.5f, 1f);      //blue
+        hairColors[5] = new Color(0.5f, 1, 0.5f);      //green
     }
 
     // Update is called once per frame
