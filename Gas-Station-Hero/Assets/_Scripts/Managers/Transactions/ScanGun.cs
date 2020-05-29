@@ -16,7 +16,7 @@ public class ScanGun : MonoBehaviour
 		{
 			REGISTER.scanned(price);
 			item.transform.GetChild(1).GetComponent<Barcode>().alreadyScanned = true;
-			item.GetComponent<Draggable>().CanBeGiven = true;
+			item.GetComponent<Draggable>().canBeGiven = true;
 			REGISTER.scannedItems.Add(item.GetComponent<Draggable>());
 		}
     }

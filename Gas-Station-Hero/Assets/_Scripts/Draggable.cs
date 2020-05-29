@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public bool isOverCounter = false;
-    public bool CanBeGiven;
+    public bool canBeGiven;
 
     public Transform parent;
     protected bool falling = false;
@@ -95,7 +95,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         }
         if (isOverCounter)
         {
-            if(CanBeGiven)//if the item can be given, it will be given to the customer and disappear
+            if(canBeGiven)//if the item can be given, it will be given to the customer and disappear
             {
                 print("you're an all star");
                 transform.SetParent(parent.parent);
