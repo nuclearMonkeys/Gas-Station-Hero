@@ -12,7 +12,7 @@ public class Reciept : Draggable
 	// public GameObject statsHolder;
 	
 	public Vector3 originalLocation;
-	
+	public static Reciept instance;
     private bool isTaken = false;
 
     // public override void Update()
@@ -34,7 +34,9 @@ public class Reciept : Draggable
         //print("Hey now");
 		CanBeGiven = false;
 		originalLocation = transform.position;
-		
+		if(instance)
+            Destroy(this.gameObject);
+        instance = this;
     }
 	
 	void Update()
@@ -74,4 +76,8 @@ public class Reciept : Draggable
         // This will cause an error if no customer is in front
         // Of the counter
     }
+	public void destroyReciept()
+	{
+		Destroy(this.gameObject);
+	}
 }
