@@ -7,4 +7,7 @@ public class CharacterInfo : MonoBehaviour
     public Text characterLevel;
     public Text pointsToNextLevel;
     public Slider pointSlider;
+    public Button characterHangout;
+    public bool availability;
 }
+    
