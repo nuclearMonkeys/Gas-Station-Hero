@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOverCounter: 0
-  CanBeGiven: 0
+  canBeGiven: 0
   parent: {fileID: 0}
 --- !u!114 &129173746
 MonoBehaviour:
@@ -538,7 +538,7 @@ PrefabInstance:
     - target: {fileID: 3127438810387284822, guid: 91c70f3b01b704a479843d4c2e25a8af,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4447935637991691903, guid: 91c70f3b01b704a479843d4c2e25a8af,
         type: 3}
@@ -1867,7 +1867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOverCounter: 0
-  CanBeGiven: 1
+  canBeGiven: 0
   parent: {fileID: 0}
 --- !u!114 &888197901
 MonoBehaviour:
@@ -1988,7 +1988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOverCounter: 0
-  CanBeGiven: 0
+  canBeGiven: 0
   parent: {fileID: 0}
 --- !u!114 &913297125
 MonoBehaviour:
@@ -2250,7 +2250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOverCounter: 1
-  CanBeGiven: 1
+  canBeGiven: 0
   parent: {fileID: 0}
   originalLocation: {x: 0, y: 0, z: 0}
 --- !u!222 &1104923969
@@ -2289,7 +2289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1106349853
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2748,6 +2748,9 @@ MonoBehaviour:
   kacper: 0
   customersServed: 0
   savings: 0
+  knowledgeBar: []
+  charmBar: []
+  courageBar: []
 --- !u!4 &1360618622
 Transform:
   m_ObjectHideFlags: 0
@@ -3329,7 +3332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOverCounter: 0
-  CanBeGiven: 1
+  canBeGiven: 0
   parent: {fileID: 0}
 --- !u!114 &1565569982
 MonoBehaviour:
@@ -3383,7 +3386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1609321697
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3889,7 +3892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOverCounter: 0
-  CanBeGiven: 1
+  canBeGiven: 0
   parent: {fileID: 0}
 --- !u!114 &1816013779
 MonoBehaviour:
