@@ -12,7 +12,7 @@ public class Reciept : Draggable
 	// public GameObject statsHolder;
 	
 	public Vector3 originalLocation;
-	
+	public static Reciept instance;
     private bool isTaken = false;
 
     // public override void Update()
@@ -32,20 +32,22 @@ public class Reciept : Draggable
     {
         //print(LineSystem.instance);
         //print("Hey now");
-		CanBeGiven = false;
+		canBeGiven = false;
 		originalLocation = transform.position;
-		
+		if(instance)
+            Destroy(this.gameObject);
+        instance = this;
     }
 	
 	void Update()
 	{
 		if(CashRegister.instance.paymentList.Count == 0 && LineSystem.instance.itemsEmpty && CashRegister.instance.oneScan)
 		{
-			CanBeGiven = true;
+			canBeGiven = true;
 		}
 		else
 		{
-			CanBeGiven = false;
+			canBeGiven = false;
 		}
 	}
 
@@ -54,7 +56,7 @@ public class Reciept : Draggable
         //base.OnBeginDrag(eventData);
 		transform.SetParent(parent);
 		GetComponent<CanvasGroup>().blocksRaycasts = true;
-        if (isOverCounter && CanBeGiven && !isTaken)
+        if (isOverCounter && canBeGiven && !isTaken)
         {
             //print("you're an allstar");
             LineSystem.instance.MoveLine();
@@ -74,4 +76,8 @@ public class Reciept : Draggable
         // This will cause an error if no customer is in front
         // Of the counter
     }
+	public void destroyReciept()
+	{
+		Destroy(this.gameObject);
+	}
 }

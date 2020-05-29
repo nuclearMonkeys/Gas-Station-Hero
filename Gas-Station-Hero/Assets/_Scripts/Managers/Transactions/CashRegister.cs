@@ -80,13 +80,31 @@ public class CashRegister : MonoBehaviour, IDropHandler
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            totalPrice -= scans[0];
-            UpdateRegisterDisplay(totalPrice);
-            for (int i = 0; i < BufferSize - 1; i++)
+            LineSystem.instance.MoveLine();
+			scannedPaymentCount = 0;
+			DiscountBarcode.instance.alreadyScanned = false;
+			totalPrice = 0;
+			oneScan = false;
+			LineSystem.instance.totalItems = 0;
+            LineSystem.instance.customer.SetActive(false);
+			Reciept.instance.destroyReciept();
+			DiscountBarcode.instance.customerNotEnoughMoney = false;
+			change = 0;
+			UpdateRegisterDisplay(change);
+			while (paymentList.Count != 0)
+			{
+				Destroy(paymentList[0]);
+				paymentList.RemoveAt(0);
+			}
+			scannedItems.RemoveRange(0, scannedItems.Count);
+			for (int i = 0; i < BufferSize; i++)
             {
-                scans[i] = scans[i + 1];
+                scans[i] = 0;
             }
-            scans[BufferSize - 1] = 0;
+			foreach(GameObject g in LineSystem.instance.items)
+			{
+				Destroy(g);
+			}
         }
 		if (change <= 0)        //when the entire amount due is paid
             {

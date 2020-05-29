@@ -10,13 +10,14 @@ public class ScanGun : MonoBehaviour
 		if(item.name == "Discount" && item.transform.GetChild(1).GetComponent<DiscountBarcode>().canBeScanned && !item.transform.GetChild(1).GetComponent<Barcode>().alreadyScanned)
 		{
 			REGISTER.scanned(price);
-			item.transform.GetChild(1).GetComponent<Barcode>().alreadyScanned = true;
+			item.transform.GetChild(1).GetComponent<DiscountBarcode>().alreadyScanned = true;
+			item.transform.GetChild(1).GetComponent<DiscountBarcode>().customerNotEnoughMoney = false;
 		}
 		else if(item.name != "Discount" && !item.transform.GetChild(1).GetComponent<Barcode>().alreadyScanned)
 		{
 			REGISTER.scanned(price);
 			item.transform.GetChild(1).GetComponent<Barcode>().alreadyScanned = true;
-			item.GetComponent<Draggable>().CanBeGiven = true;
+			item.GetComponent<Draggable>().canBeGiven = true;
 			REGISTER.scannedItems.Add(item.GetComponent<Draggable>());
 		}
     }
