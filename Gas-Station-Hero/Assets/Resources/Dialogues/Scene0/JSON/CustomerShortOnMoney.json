@@ -1,0 +1,40 @@
+[
+	{
+		"Player": "It looks like you don't have enough money to pay for this."
+	},
+	{
+		"Customer": "Yea, is there someway you can help me out?"
+	},
+	{
+		"?": [
+			{
+				"1": [
+					"No, I'm sorry, please leave.",
+					{
+						"Player": "No, I'm sorry, please leave."
+					},
+					{
+						"Customer": "Hurmpf!"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			},
+			{
+				"2": [
+					"Sure, just don't let it happen again.",
+					{
+						"Player": "Sure, just don't let it happen again."
+					},
+					{
+						"Customer": "Thanks, you're the best!"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			}
+		]
+	}
+]

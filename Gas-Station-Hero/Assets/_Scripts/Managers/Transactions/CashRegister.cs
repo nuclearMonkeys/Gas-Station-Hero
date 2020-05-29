@@ -88,6 +88,7 @@ public class CashRegister : MonoBehaviour, IDropHandler
 			LineSystem.instance.totalItems = 0;
             LineSystem.instance.customer.SetActive(false);
 			Reciept.instance.destroyReciept();
+			DiscountBarcode.instance.customerNotEnoughMoney = false;
 			change = 0;
 			UpdateRegisterDisplay(change);
 			while (paymentList.Count != 0)
