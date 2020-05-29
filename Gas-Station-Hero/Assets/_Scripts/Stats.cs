@@ -32,7 +32,9 @@ public class Stats : MonoBehaviour
     {
 		if (instance)
 			Destroy(this.gameObject);
+
 		instance = this;
+		DontDestroyOnLoad(this.gameObject);
 
         knowledge = 1;
 		knowledgeBar[0].color = Color.yellow;
