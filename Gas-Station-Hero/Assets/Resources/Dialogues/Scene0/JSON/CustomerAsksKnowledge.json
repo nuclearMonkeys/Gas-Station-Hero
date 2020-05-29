@@ -1,0 +1,37 @@
+[
+	{
+		"Customer": "Hey, could you tell me how much these red chips are?"
+	},
+	{
+		"?": [
+			{
+				"1": [
+					"Yea, they're $1.50!",
+					{
+						"Player": "Yea, they're $1.50!"
+					},
+					{
+						"Customer": "Are you sure... I don't think they are actually."
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			},
+			{
+				"2": [
+					"Yea, they're $1.00!",
+					{
+						"Player": "Yea, they're $1.00!"
+					},
+					{
+						"Customer": "Thanks!"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			}
+		]
+	}
+]
