@@ -1,0 +1,37 @@
+[
+	{
+		"Customer": "I don't have enough money I want this stuff, give me your employee discount."
+	},
+	{
+		"?": [
+			{
+				"1": [
+					"I can't do that, if you don't have money, please leave.",
+					{
+						"Player": "I can't do that, if you don't have money, please leave."
+					},
+					{
+						"Customer": "Fine, whatever."
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			},
+			{
+				"2": [
+					"Um, yea ok sure.",
+					{
+						"Player": "Um, yea ok sure."
+					},
+					{
+						"Customer": "Awesome, bye."
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			}
+		]
+	}
+]
