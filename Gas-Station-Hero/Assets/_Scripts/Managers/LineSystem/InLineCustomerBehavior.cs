@@ -11,7 +11,7 @@ public class InLineCustomerBehavior : MonoBehaviour
     private bool leaving = false;
     public bool moving = false;
 	public bool ordering = false;
-    Animator anim;
+    public Animator anim;
     /*=================================
     fucntion to have the customer leave the line and self destroy after 5 secs,
     which should be adjusted depending on the speed of the customer and the size of the screen
@@ -22,7 +22,7 @@ public class InLineCustomerBehavior : MonoBehaviour
         vector.y = 0;
         leaving = true;
 		ordering = false;
-        anim.SetBool("walking", true);
+        anim.SetBool("Walking", true);
         Destroy(gameObject, 5);
     }
 
@@ -33,9 +33,9 @@ public class InLineCustomerBehavior : MonoBehaviour
     {
         TargetLoc = target;
         moving = true;
-        anim.SetBool("walking", true);
+        anim.SetBool("Walking", true);
     }
-    private void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
     }
@@ -64,7 +64,7 @@ public class InLineCustomerBehavior : MonoBehaviour
             vector = Vector3.MoveTowards(transform.position, TargetLoc, speed) - transform.position;//part to stop moving the customer once it reaches the proximity of the target location.
             if (vector.magnitude < 0.1)
             {
-                anim.SetBool("walking", false);
+                anim.SetBool("Walking", false);
                 moving = false;
                 vector = Vector2.zero;
             }
