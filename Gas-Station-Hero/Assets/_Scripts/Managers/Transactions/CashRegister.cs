@@ -10,7 +10,7 @@ public class CashRegister : MonoBehaviour, IDropHandler
     public Text registerText;
 
     public static CashRegister instance;
-
+    public GameObject CashCompartment;
     public float TOTAL_SALES_DAILY;             //total amount of payment recieved today
     public float totalPrice;                    //current transaction total
 
@@ -53,7 +53,7 @@ public class CashRegister : MonoBehaviour, IDropHandler
     {
         GameObject payment = eventData.pointerDrag;
         CashPayment CashPayment = payment.GetComponent<CashPayment>();
-        if (CashPayment)
+        if (CashPayment && CashCompartment.activeSelf)
         {
             change -= CashPayment.getAmount();
 			payment.SetActive(false);

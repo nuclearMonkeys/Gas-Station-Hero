@@ -6,7 +6,7 @@ public class CreditCard : MonoBehaviour
 {
     private Image img;
 
-    void Randomize()
+    public void Randomize()
     {
         img.color = new Color(Random.Range(0, 0.5f), Random.Range(0, 0.5f), Random.Range(0, 0.5f));
     }
@@ -19,7 +19,5 @@ public class CreditCard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            Randomize();
     }
 }
