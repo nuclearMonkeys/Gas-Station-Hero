@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class Results : MonoBehaviour
 {
 
@@ -31,6 +32,21 @@ public class Results : MonoBehaviour
 
     void Start()
     {
+		print(Stats.instance);
+		if (Stats.instance) {
+			customers = Stats.instance.customersServed;
+
+			Stats.instance.savings += (customers * 100) - rent - utilities;
+
+			savings = Stats.instance.savings;
+		}
+
+
+		salaryText.GetComponent<Text>().text = "Salary: +$" + (customers*100).ToString();
+		rentText.GetComponent<Text>().text = "Rent: -$" + rent.ToString();
+		utilitiesText.GetComponent<Text>().text = "Utilities: -$" + utilities.ToString();
+		savingsText.GetComponent<Text>().text = "Savings: $" + savings.ToString();
+
 		crossfadeImage.SetActive(false);
 		salaryText.SetActive(false);
 		rentText.SetActive(false);
@@ -111,8 +127,6 @@ public class Results : MonoBehaviour
 			Reset and progress day
 		}
 		*/
-		customers = Stats.instance.customersServed;
-		savings = Stats.instance.savings;
     }
 	
 	void calculateTotal()
