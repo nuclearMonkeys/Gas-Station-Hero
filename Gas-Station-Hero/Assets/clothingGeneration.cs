@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class clothingGeneration : MonoBehaviour
 {
-    private int counter = 20;
+    private int counter = 20;   //USED FOR TEST!! DELETE THIS
 
     public Sprite[] Base = new Sprite[4];
     public Sprite[] Color = new Sprite[4];
@@ -37,7 +37,7 @@ public class clothingGeneration : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {///
         if (counter-- == 0)
         {
             makeClothing();

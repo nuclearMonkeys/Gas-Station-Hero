@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class LineSystem : MonoBehaviour
 {
     public static LineSystem instance;
-    private const int maxNumCustomer = 6;
+    private const int maxNumCustomer = 5;
     private int totalCustomer;
     public GameObject[] customers = new GameObject[maxNumCustomer];
     public Vector2[] LineSpot = new Vector2[maxNumCustomer];
@@ -80,7 +80,6 @@ public class LineSystem : MonoBehaviour
             customers[index] = Instantiate(customerPrefab, customerSpawnPoint.transform.localPosition, Quaternion.identity);
             customers[index].GetComponent<SpriteRenderer>().sortingLayerName = "Midground";
             customers[index].GetComponent<InLineCustomerBehavior>().moveUp( LineSpot[index]);
-  
         }
     }
 
