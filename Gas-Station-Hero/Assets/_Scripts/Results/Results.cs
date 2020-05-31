@@ -99,19 +99,7 @@ public class Results : MonoBehaviour
 
 	public void ToMainScene() 
 	{
-		/*
-		if(day == 14 && stats checks)
-		{
-			Move scene to whichever scene has the end
-		}
-		else if(day == 14 && other stat options)
-		{
-			Move to a different scene
-		}
-		else
-		{*/
 		StartCoroutine(ToMainSceneCoroutine());
-		//}
 	}
 
 	private IEnumerator ToMainSceneCoroutine() 
