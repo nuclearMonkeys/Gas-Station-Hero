@@ -111,6 +111,8 @@ public class Results : MonoBehaviour
 			Reset and progress day
 		}
 		*/
+		customers = Stats.instance.customersServed;
+		savings = Stats.instance.savings;
     }
 	
 	void calculateTotal()
