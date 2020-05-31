@@ -13,8 +13,7 @@ public class GenerateFace : MonoBehaviour
 
     private int[] featureIndex = new int[5];
     private Color[] hairColors = new Color[6];
-
-    int counter= 20;
+    
     void makeFace()
     {
         int random;
@@ -79,10 +78,6 @@ public class GenerateFace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (counter-- == 0)
-        {
-            makeFace();
-            counter = 50;
-        }
+
     }
 }

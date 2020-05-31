@@ -200,8 +200,6 @@ public class LineSystem : MonoBehaviour
 			totalItems += 1;
 		}
 		float givenMoney = 0;
-		Debug.Log(givenMoney);
-		Debug.Log(totalPrice);
 		if((int)Random.Range(0.0f, 2.0f) == 0)
 		{
 			while(givenMoney < totalPrice)
