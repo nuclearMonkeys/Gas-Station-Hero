@@ -49,6 +49,7 @@ public class ClockUI : MonoBehaviour
                 // Color c = crossfadeImage.GetComponent<SpriteRenderer>().color;
                 // c.a = 0;
                 // crossfadeImage.GetComponent<SpriteRenderer>().color = c; 
+				
                 closeUpButton.SetActive(true);
                 lineManager.GetComponent<LineSystem>().endDay();
                 dayEnded = true;
