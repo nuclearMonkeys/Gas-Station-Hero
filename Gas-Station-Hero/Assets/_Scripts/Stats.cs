@@ -60,10 +60,6 @@ public class Stats : MonoBehaviour
 		{
 			courage = 5;
 		}
-		if (Input.GetKeyDown(KeyCode.C))
-		{
-			knowledge += 1;
-		}
     }
 	
 	void Awake()
