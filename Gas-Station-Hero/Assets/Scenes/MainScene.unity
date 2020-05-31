@@ -639,7 +639,7 @@ PrefabInstance:
         type: 3}
       propertyPath: register
       value: 
-      objectReference: {fileID: 184027075}
+      objectReference: {fileID: 1623771668}
     - target: {fileID: 3127438810387284821, guid: 91c70f3b01b704a479843d4c2e25a8af,
         type: 3}
       propertyPath: oneDollar
@@ -1384,6 +1384,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 49.3
       objectReference: {fileID: 0}
+    - target: {fileID: 713542977247470871, guid: ba95b88a11a3a0f4684a2a2fdd6743de,
+        type: 3}
+      propertyPath: REGISTER
+      value: 
+      objectReference: {fileID: 1623771671}
     - target: {fileID: 713542977595724299, guid: ba95b88a11a3a0f4684a2a2fdd6743de,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4021,6 +4026,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 516095542}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1623771671 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8034577690769263423, guid: ba95b88a11a3a0f4684a2a2fdd6743de,
+    type: 3}
+  m_PrefabInstance: {fileID: 516095542}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623771668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3817737b57052941815b10f234a31f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1662343519
 GameObject:
   m_ObjectHideFlags: 0

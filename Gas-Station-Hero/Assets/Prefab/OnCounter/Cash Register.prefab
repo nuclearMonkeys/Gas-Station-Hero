@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 1255950652}
   - component: {fileID: 1255950654}
   - component: {fileID: 1255950653}
+  - component: {fileID: 3255996533973183092}
   m_Layer: 5
   m_Name: Register Image
   m_TagString: Untagged
@@ -146,6 +147,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3255996533973183092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255950651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae517fe8d67efdf4884f9f752defc6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compartment: {fileID: 8008822317231532337}
 --- !u!1 &713542977247470869
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dbcbbb9ff5a9449b6a20e2a7f37d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  REGISTER: {fileID: 680043111348654696}
+  REGISTER: {fileID: 0}
 --- !u!1 &713542978106534376
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 713542978135170114}
   - component: {fileID: 713542978135170117}
+  - component: {fileID: 8034577690769263423}
   m_Layer: 5
   m_Name: Cash Register
   m_TagString: Untagged
@@ -390,6 +405,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713542978135170113}
   m_CullTransparentMesh: 0
+--- !u!114 &8034577690769263423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713542978135170113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3817737b57052941815b10f234a31f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  registerText: {fileID: 713542978106534378}
+  CashCompartment: {fileID: 8008822317231532337}
+  TOTAL_SALES_DAILY: 0
+  totalPrice: 0
+  change: 0
+  scannedItems: []
+  scans:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  paymentList: []
+  oneScan: 0
+  scannedPaymentCount: 0
 --- !u!1 &3836046341996592884
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +603,7 @@ GameObject:
   - component: {fileID: 7336351009614018256}
   - component: {fileID: 7248219663357027107}
   - component: {fileID: 725871724450635352}
-  - component: {fileID: 680043111348654696}
+  - component: {fileID: 516199340356721787}
   m_Layer: 5
   m_Name: CashCompartment
   m_TagString: Untagged
@@ -624,7 +666,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &680043111348654696
+--- !u!114 &516199340356721787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -633,20 +675,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8008822317231532337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3817737b57052941815b10f234a31f1, type: 3}
+  m_Script: {fileID: 11500000, guid: ae517fe8d67efdf4884f9f752defc6ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  registerText: {fileID: 713542978106534378}
-  TOTAL_SALES_DAILY: 0
-  totalPrice: 0
-  change: 0
-  scannedItems: []
-  scans:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  paymentList: []
-  oneScan: 0
-  scannedPaymentCount: 0
+  compartment: {fileID: 8008822317231532337}
