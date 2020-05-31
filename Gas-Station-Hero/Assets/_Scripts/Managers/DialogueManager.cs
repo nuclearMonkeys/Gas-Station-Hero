@@ -12,6 +12,8 @@ public class DialogueManager : MonoBehaviour
     // public TextMeshProUGUI textDisplay;
     // public List<GameObject> buttons = new List<GameObject>();
 
+    public GameObject customerPanelDisplay;
+    public GameObject playerPanelDisplay;
     public TextMeshProUGUI customerTextDisplay;
     public TextMeshProUGUI playerTextDisplay;
     public GameObject[] buttons;
@@ -41,12 +43,12 @@ public class DialogueManager : MonoBehaviour
     {
         if(!inDialogue)
         {
-          
             TextAsset jsonTextFile = Resources.Load<TextAsset>("Dialogues/" + path);
             JsonMapper.ToObject(jsonTextFile.text);
             dialogue = JsonMapper.ToObject(jsonTextFile.text);
             inDialogue = true;
             currentLayer = dialogue;
+            ActivatePanels();
             return true;
         }
         return false;
@@ -68,6 +70,7 @@ public class DialogueManager : MonoBehaviour
                 playerTextDisplay.text = "";
                 index = 0;
                 line_position = "";
+                DeactivatePanels();
                 return false;          
             }
             else if(speaker == "?")
@@ -104,6 +107,18 @@ public class DialogueManager : MonoBehaviour
 
         
     }
+
+    private void DeactivatePanels() 
+    {
+        customerPanelDisplay.SetActive(false);
+        playerPanelDisplay.SetActive(false);
+    }
+    private void ActivatePanels() 
+    {
+        customerPanelDisplay.SetActive(true);
+        playerPanelDisplay.SetActive(true);
+    }
+
     private void ActivateButton(GameObject button, JsonData choice) 
     {
         button.SetActive(true);
@@ -121,5 +136,6 @@ public class DialogueManager : MonoBehaviour
     private void Start() {
 
         DeactivateButtons();
+        DeactivatePanels();
     }
 }
