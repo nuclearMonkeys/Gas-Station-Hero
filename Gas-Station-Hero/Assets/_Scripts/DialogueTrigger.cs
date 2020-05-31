@@ -10,9 +10,11 @@ public class DialogueTrigger : MonoBehaviour
     public int dialogue_id;
     public string string_dialogue_id;
     
-    private bool inTrigger = true;
-    private bool dialogueLoaded = false;
-    private bool isNewCustomer = true;
+    public bool inTrigger = true;
+    public bool dialogueLoaded = false;
+    public bool isNewCustomer = true;
+    public bool isInteraction = false;
+    public string interaction_id;
 
     // Start is called before the first frame update
     // void Start()
@@ -33,8 +35,15 @@ public class DialogueTrigger : MonoBehaviour
             {
                 Debug.Log("Dialogue Loaded");
                 isNewCustomer = false;
-                dialogue_id = Random.Range(0,3);
-                string_dialogue_id = dialogue_id.ToString();
+                
+                if(!isInteraction) {
+                    dialogue_id = Random.Range(0,3);
+                    string_dialogue_id = dialogue_id.ToString();
+                }
+                else {
+                    string_dialogue_id = interaction_id;
+                    isInteraction = false;
+                }
                 dialogueLoaded = DialogueManager.instance.loadDialogue(dialoguePath + string_dialogue_id);
                 
             }

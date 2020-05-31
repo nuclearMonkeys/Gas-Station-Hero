@@ -10,6 +10,7 @@ public class DiscountBarcode : Barcode
 	
 	public GameObject register;
 	public GameObject lineSystem;
+	public GameObject DialogueTrigger;
 	public bool canBeScanned = false;
 	public bool customerNotEnoughMoney = false;
     // Start is called before the first frame update
@@ -25,6 +26,9 @@ public class DiscountBarcode : Barcode
     {
         if(register.GetComponent<CashRegister>().scannedItems.Count == lineSystem.GetComponent<LineSystem>().totalItems && register.GetComponent<CashRegister>().scannedPaymentCount == register.GetComponent<CashRegister>().paymentList.Count && register.GetComponent<CashRegister>().change > 0)
 		{
+			DialogueTrigger.GetComponent<DialogueTrigger>().interaction_id = "CustomerShortOnMoney";
+			DialogueTrigger.GetComponent<DialogueTrigger>().isInteraction = true;
+
 			customerNotEnoughMoney = true;
 			price = register.GetComponent<CashRegister>().change * (-1);
 			canBeScanned = true;
