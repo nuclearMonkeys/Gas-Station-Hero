@@ -74,6 +74,7 @@ public class ClockUI : MonoBehaviour
 					Destroy(g);
 				}
                 closeUpButton.SetActive(true);
+				Stats.instance.day += 1;
                 lineManager.GetComponent<LineSystem>().endDay();
                 dayEnded = true;
             }

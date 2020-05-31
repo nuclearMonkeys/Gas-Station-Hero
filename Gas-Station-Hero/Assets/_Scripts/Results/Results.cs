@@ -32,7 +32,7 @@ public class Results : MonoBehaviour
 
     void Start()
     {
-		print(Stats.instance);
+		day = Stats.instance.day;
 		if (Stats.instance) {
 			customers = Stats.instance.customersServed;
 
@@ -46,6 +46,7 @@ public class Results : MonoBehaviour
 		rentText.GetComponent<Text>().text = "Rent: -$" + rent.ToString();
 		utilitiesText.GetComponent<Text>().text = "Utilities: -$" + utilities.ToString();
 		savingsText.GetComponent<Text>().text = "Savings: $" + savings.ToString();
+		dayText.GetComponent<Text>().text = "End Of Day " + day.ToString();
 
 		crossfadeImage.SetActive(false);
 		salaryText.SetActive(false);

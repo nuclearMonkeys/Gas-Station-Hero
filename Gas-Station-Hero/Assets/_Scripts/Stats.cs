@@ -21,12 +21,13 @@ public class Stats : MonoBehaviour
 	int kacperCap;
 	public int customersServed;
 	public int savings;
+	public int day;
 
     // Start is called before the first frame update
     void Start()
     {
 
-
+		day = 0;
         knowledge = 1;
 		knowledgeCap = 5;
 		knowledgeExp = 0;
