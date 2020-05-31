@@ -6,9 +6,10 @@ using UnityEngine.EventSystems;
 
 public class openCashCompartment : MonoBehaviour, IPointerClickHandler
 {
+    public GameObject compartment;
     public void OnPointerClick(PointerEventData eventData)
     {
-        transform.GetChild(3).gameObject.SetActive(!transform.GetChild(3).gameObject.activeSelf);
+        compartment.SetActive(!compartment.activeSelf);
 
     }
     // Start is called before the first frame update

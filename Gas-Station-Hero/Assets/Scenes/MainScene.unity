@@ -639,7 +639,7 @@ PrefabInstance:
         type: 3}
       propertyPath: register
       value: 
-      objectReference: {fileID: 1623771668}
+      objectReference: {fileID: 184027075}
     - target: {fileID: 3127438810387284821, guid: 91c70f3b01b704a479843d4c2e25a8af,
         type: 3}
       propertyPath: oneDollar
@@ -729,6 +729,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91c70f3b01b704a479843d4c2e25a8af, type: 3}
+--- !u!1 &184027075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8008822317231532337, guid: ba95b88a11a3a0f4684a2a2fdd6743de,
+    type: 3}
+  m_PrefabInstance: {fileID: 516095542}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &184027080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184027075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae517fe8d67efdf4884f9f752defc6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compartment: {fileID: 184027075}
 --- !u!1 &229232776
 GameObject:
   m_ObjectHideFlags: 0
@@ -1585,6 +1604,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8008822317231532337, guid: ba95b88a11a3a0f4684a2a2fdd6743de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba95b88a11a3a0f4684a2a2fdd6743de, type: 3}
