@@ -539,7 +539,7 @@ PrefabInstance:
     - target: {fileID: 4447935637991691903, guid: 91c70f3b01b704a479843d4c2e25a8af,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.87
+      value: -6.25
       objectReference: {fileID: 0}
     - target: {fileID: 4447935637991691903, guid: 91c70f3b01b704a479843d4c2e25a8af,
         type: 3}
@@ -3342,12 +3342,12 @@ PrefabInstance:
         type: 3}
       propertyPath: lineManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 859804621}
     - target: {fileID: 3998104248965131553, guid: 581ea3e4fe2b3429fa982ec890c9bb1d,
         type: 3}
       propertyPath: closeUpButton
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1874457097}
     - target: {fileID: 3998104248965131554, guid: 581ea3e4fe2b3429fa982ec890c9bb1d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3836,6 +3836,41 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7526586776149990208, guid: fbc1495c7e98ccf47bb55a522886d154,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526586776169377077, guid: fbc1495c7e98ccf47bb55a522886d154,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526586776422513365, guid: fbc1495c7e98ccf47bb55a522886d154,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526586777301609495, guid: fbc1495c7e98ccf47bb55a522886d154,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526586777494115816, guid: fbc1495c7e98ccf47bb55a522886d154,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526586777655709004, guid: fbc1495c7e98ccf47bb55a522886d154,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526586777792995662, guid: fbc1495c7e98ccf47bb55a522886d154,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbc1495c7e98ccf47bb55a522886d154, type: 3}
 --- !u!224 &1448369965 stripped
@@ -4090,6 +4125,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721990944}
   m_CullTransparentMesh: 0
+--- !u!1 &1874457097 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1365186635962733215, guid: 5d9e5a7c43c9c214f9a4afb397440cae,
+    type: 3}
+  m_PrefabInstance: {fileID: 1283030083}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1877998896
 GameObject:
   m_ObjectHideFlags: 0

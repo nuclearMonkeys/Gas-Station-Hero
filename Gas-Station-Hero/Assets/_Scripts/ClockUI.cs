@@ -49,7 +49,30 @@ public class ClockUI : MonoBehaviour
                 // Color c = crossfadeImage.GetComponent<SpriteRenderer>().color;
                 // c.a = 0;
                 // crossfadeImage.GetComponent<SpriteRenderer>().color = c; 
-				
+				LineSystem.instance.endDayBool = true;
+				CashRegister.instance.scannedPaymentCount = 0;
+				DiscountBarcode.instance.alreadyScanned = false;
+				CashRegister.instance.totalPrice = 0;
+				CashRegister.instance.oneScan = false;
+				LineSystem.instance.totalItems = 0;
+				LineSystem.instance.customer.SetActive(false);
+				DiscountBarcode.instance.customerNotEnoughMoney = false;
+				CashRegister.instance.change = 0;
+				CashRegister.instance.UpdateRegisterDisplay(CashRegister.instance.change);
+				while (CashRegister.instance.paymentList.Count != 0)
+				{
+					Destroy(CashRegister.instance.paymentList[0]);
+					CashRegister.instance.paymentList.RemoveAt(0);
+				}
+				CashRegister.instance.scannedItems.RemoveRange(0, CashRegister.instance.scannedItems.Count);
+				for (int i = 0; i < CashRegister.instance.BufferSize; i++)
+				{
+					CashRegister.instance.scans[i] = 0;
+				}
+				foreach(GameObject g in LineSystem.instance.items)
+				{
+					Destroy(g);
+				}
                 closeUpButton.SetActive(true);
                 lineManager.GetComponent<LineSystem>().endDay();
                 dayEnded = true;

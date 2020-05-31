@@ -12,6 +12,7 @@ public class LineSystem : MonoBehaviour
 	public GameObject[] items = new GameObject[10];
 	public int totalItems = 0;
 	public bool itemsEmpty;
+	public bool endDayBool;
 
     public GameObject customerPrefab;
 	public GameObject chips;
@@ -42,6 +43,7 @@ public class LineSystem : MonoBehaviour
             Destroy(this);
         instance = this;
         startDay();
+		endDayBool = false;
     }
 
     // Update is called once per frame
@@ -128,7 +130,7 @@ public class LineSystem : MonoBehaviour
 	
 	public void customerOrder()
 	{
-		if(customers[totalCustomer % maxNumCustomer]!= null && !customers[totalCustomer % maxNumCustomer].GetComponent<InLineCustomerBehavior>().moving && !customers[totalCustomer % maxNumCustomer].GetComponent<InLineCustomerBehavior>().ordering)
+		if(!endDayBool && customers[totalCustomer % maxNumCustomer]!= null && !customers[totalCustomer % maxNumCustomer].GetComponent<InLineCustomerBehavior>().moving && !customers[totalCustomer % maxNumCustomer].GetComponent<InLineCustomerBehavior>().ordering)
 		{
 			customers[totalCustomer % maxNumCustomer].GetComponent<InLineCustomerBehavior>().ordering = true;
 			startTransaction();

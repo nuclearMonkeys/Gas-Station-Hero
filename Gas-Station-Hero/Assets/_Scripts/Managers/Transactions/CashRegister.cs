@@ -16,9 +16,9 @@ public class CashRegister : MonoBehaviour, IDropHandler
 
     public float change;
     private bool FullPaymentRecieved = false;
-    private const int BufferSize = 5;
+    public int BufferSize = 5;
     public List<Draggable> scannedItems = new List<Draggable>();
-    public float[] scans = new float[BufferSize];
+    public float[] scans = new float[5];
 	public List<GameObject> paymentList = new List<GameObject>();
 	public bool oneScan = false;
 	public int scannedPaymentCount = 0;
@@ -35,7 +35,7 @@ public class CashRegister : MonoBehaviour, IDropHandler
         change += price;
         UpdateRegisterDisplay(change);
     }
-    private void UpdateRegisterDisplay(float price)
+    public void UpdateRegisterDisplay(float price)
     {
         registerText.text = price.ToString("F2");
     }

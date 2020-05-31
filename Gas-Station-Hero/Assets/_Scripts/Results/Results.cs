@@ -40,7 +40,7 @@ public class Results : MonoBehaviour
 
 			savings = Stats.instance.savings;
 		}
-
+		Stats.instance.customersServed = 0;
 
 		salaryText.GetComponent<Text>().text = "Salary: +$" + (customers*100).ToString();
 		rentText.GetComponent<Text>().text = "Rent: -$" + rent.ToString();
@@ -134,7 +134,6 @@ public class Results : MonoBehaviour
 		savings += customers * 800;
 		savings -= rent;
 		savings -= utilities;
-		Debug.Log(savings);
 	}
 	void updateText()
 	{
