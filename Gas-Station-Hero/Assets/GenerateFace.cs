@@ -14,7 +14,7 @@ public class GenerateFace : MonoBehaviour
     private int[] featureIndex = new int[5];
     private Color[] hairColors = new Color[6];
     
-    void makeFace()
+    public void makeFace()
     {
         int random;
         for (short i = 0; i < 5; i++)
@@ -65,7 +65,7 @@ public class GenerateFace : MonoBehaviour
         }
     }
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         hairColors[0] = new Color(1, 1, 0.5f);      //blonde
         hairColors[1] = new Color(0.2f, 0.1f, 0.1f);//brown

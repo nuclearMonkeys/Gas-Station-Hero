@@ -32,7 +32,7 @@ public class Results : MonoBehaviour
 
     void Start()
     {
-		print(Stats.instance);
+		day = Stats.instance.day;
 		if (Stats.instance) {
 			customers = Stats.instance.customersServed;
 
@@ -40,12 +40,13 @@ public class Results : MonoBehaviour
 
 			savings = Stats.instance.savings;
 		}
-
+		Stats.instance.customersServed = 0;
 
 		salaryText.GetComponent<Text>().text = "Salary: +$" + (customers*100).ToString();
 		rentText.GetComponent<Text>().text = "Rent: -$" + rent.ToString();
 		utilitiesText.GetComponent<Text>().text = "Utilities: -$" + utilities.ToString();
 		savingsText.GetComponent<Text>().text = "Savings: $" + savings.ToString();
+		dayText.GetComponent<Text>().text = "End Of Day " + day.ToString();
 
 		crossfadeImage.SetActive(false);
 		salaryText.SetActive(false);
@@ -134,7 +135,6 @@ public class Results : MonoBehaviour
 		savings += customers * 800;
 		savings -= rent;
 		savings -= utilities;
-		Debug.Log(savings);
 	}
 	void updateText()
 	{

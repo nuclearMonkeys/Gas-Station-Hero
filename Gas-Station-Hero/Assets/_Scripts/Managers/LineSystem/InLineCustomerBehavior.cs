@@ -7,7 +7,7 @@ public class InLineCustomerBehavior : MonoBehaviour
     public Vector2 TargetLoc;
     private Vector2 vector;
     public float speed = 3;
-    private float turnSpeed = 100;
+    private float turnSpeed = 27;
     private bool leaving = false;
     public bool moving = false;
 	public bool ordering = false;

@@ -26,7 +26,7 @@ public class clothingGeneration : MonoBehaviour
         transform.GetChild(0).GetComponent<Image>().sprite = Color[Index[0]];
         transform.GetChild(0).GetComponent<Image>().color = COLOR[Index[1]];
     }
-    void Start()
+    void Awake()
     {
         COLOR[3] = new Color(0.7f, 0.1f, 0.1f);      //red
         COLOR[0] = new Color(0.3f, 0.1f, 0.1f);      //red
