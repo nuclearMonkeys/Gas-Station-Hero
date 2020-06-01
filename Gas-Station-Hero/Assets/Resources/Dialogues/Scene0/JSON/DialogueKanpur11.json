@@ -1,0 +1,129 @@
+﻿[
+	{
+		"Player": "You're in awfully high spirits"
+	},
+	{
+		"Kanpur": "Ha, awful indeed"
+	},
+	{
+		"Kanpur": "I headed into Goyak this morning, and guess what?"
+	},
+	{
+		"Kanpur": "They're tearing down the old statue of Vetrliði"
+	},
+	{
+		"Player": "Vetrliði? The old king?"
+	},
+	{
+		"Kanpur": "Ha, yeah. That one"
+	},
+	{
+		"Kanpur": "The one who signed our land away"
+	},
+	{
+		"Kanpur": "The one who couldn't even resist"
+	},
+	{
+		"Kanpur": "You'd think that the Quanei would've given a medal for being a peace-loving coward or something"
+	},
+	{
+		"Kanpur": "But now they're tearing his statue down to make room for some damn courthouse"
+	},
+	{
+		"Kanpur": "Not like they weren't judging us before"
+	},
+	{
+		"Kanpur": "Everyone knew our judges answered to them"
+	},
+	{
+		"Kanpur": "Ha, not that I would ever disagree"
+	},
+	{
+		"Kanpur": "Oh no, I wouldn't dare."
+	},
+	{
+		"Kanpur": "I wouldn't dare..."
+	},
+	{
+		"Customer": "You see Kanpur's smile fade from his face, replaced with a bitter look of shame and disgust"
+	},
+	{
+		"Kanpur": "You hate cowards too, right?"
+	},
+	{
+		"?": [
+			{
+				"1": [
+					"Yes",
+					{
+						"Player": "Yes"
+					},
+					{
+						"Kanpur": "Wow"
+					},
+					{
+						"Kanpur": "Have you got any tact, kiddo?"
+					},
+					{
+						"Kanpur": "Get the hell outta here"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			},
+			{
+				"2": [
+					"Maybe a coward is just a hero biding their time",
+					{
+						"Player": "Maybe a coward is just a hero biding their time"
+					},
+					{
+						"Kanpur": "Ha ha ha"
+					},
+					{
+						"Kanpur": "Good one"
+					},
+					{
+						"Kanpur": "..."
+					},
+					{
+						"Kanpur": "This is reality, kid"
+					},
+					{
+						"Kanpur": "Not a story"
+					},
+					{
+						"Kanpur": "There are no heroes"
+					},
+					{
+						"Player": "We'll see"
+					},
+					{
+						"Kanpur": "Ha"
+					},
+					{
+						"Kanpur": "..."
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			},
+			{
+				"3": [
+					"No",
+					{
+						"Player": "No"
+					},
+					{
+						"Kanpur": "...Good"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			}
+		]
+	}
+]

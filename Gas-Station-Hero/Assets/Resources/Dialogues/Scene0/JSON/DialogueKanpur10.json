@@ -1,0 +1,58 @@
+[
+	{
+		"Kanpur": "Well well well, if it isn't my favorite counter worker"
+	},
+	{
+		"Kanpur": "No wait, money giver?"
+	},
+	{
+		"Kanpur": "Customer satisifier?"
+	},
+	{
+		"Kanpur": "Right, cashier. Ha, a fucking cashier"
+	},
+	{
+		"Kanpur": "Just my favorite cashier"
+	},
+	{
+		"Kanpur": "Hic"
+	},
+	{
+		"?": [
+			{
+				"1": [
+					"Favorite? I¡¯m the only one that works here",
+					{
+						"Player": "Favorite? I¡¯m the only one that works here"
+					},
+					{
+						"Kanpur": "Ha, smart too"
+					},
+					{
+						"Kanpur": "That's exactly why you're my favorite"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			},
+			{
+				"2": [
+					"Are you drunk?",
+					{
+						"Player": "Are you drunk?"
+					},
+					{
+						"Kanpur": "Of course, idiot"
+					},
+					{
+						"Kanpur": "Can't you tell?"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			}
+		]
+	}
+]
