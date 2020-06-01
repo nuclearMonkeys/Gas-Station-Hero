@@ -649,6 +649,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5696230033742660762, guid: 85f22c2e8f359f747b6c557c6938bb84,
         type: 3}
+    - target: {fileID: 3127438810387284821, guid: 91c70f3b01b704a479843d4c2e25a8af,
+        type: 3}
+      propertyPath: DialogueTrigger
+      value: 
+      objectReference: {fileID: 2075081461}
     - target: {fileID: 3127438810387284822, guid: 91c70f3b01b704a479843d4c2e25a8af,
         type: 3}
       propertyPath: m_Name
@@ -3907,6 +3912,11 @@ PrefabInstance:
       propertyPath: buttons.Array.data[0]
       value: 
       objectReference: {fileID: 409991048}
+    - target: {fileID: 3973336324215419175, guid: d83cbe4fa0fb0824e87c174e43d51577,
+        type: 3}
+      propertyPath: DialogueTrigger
+      value: 
+      objectReference: {fileID: 2075081461}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d83cbe4fa0fb0824e87c174e43d51577, type: 3}
 --- !u!1 &1352346041

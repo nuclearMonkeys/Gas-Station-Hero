@@ -31,6 +31,7 @@ public class LineSystem : MonoBehaviour
 	public GameObject twentyDollar;
 	public GameObject reciept;
 	public GameObject register;
+	public GameObject DialogueTrigger;
 	
 
     /*=======================
@@ -108,6 +109,7 @@ public class LineSystem : MonoBehaviour
         customers[totalCustomer % maxNumCustomer].GetComponent<InLineCustomerBehavior>().moveUp(LineSpot[maxNumCustomer - 1]);
         totalCustomer++;
         StartCoroutine(delayedMove());
+
     }
     IEnumerator delayedMove()//part of above
     {
@@ -142,6 +144,7 @@ public class LineSystem : MonoBehaviour
 		customer.SetActive(true);
         customer.transform.GetChild(0).GetComponent<clothingGeneration>().makeClothing();
         customer.transform.GetChild(1).GetComponent<GenerateFace>().makeFace();
+		DialogueTrigger.GetComponent<DialogueTrigger>().isNewCustomer = true;
         float totalPrice = 0;
 
 		Instantiate(reciept, panel.transform);
