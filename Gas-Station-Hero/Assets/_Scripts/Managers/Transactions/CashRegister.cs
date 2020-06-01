@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class CashRegister : MonoBehaviour, IDropHandler
 {
 
-    public Text registerText;
+    public TMP_Text registerText;
 
     public static CashRegister instance;
     public GameObject CashCompartment;
