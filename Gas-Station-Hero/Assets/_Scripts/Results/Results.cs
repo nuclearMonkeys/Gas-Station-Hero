@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Results : MonoBehaviour
 {
-
+	public static Results instance;
 	[Header("Prefabs")]
 	public GameObject characterInfoPrefab;
 

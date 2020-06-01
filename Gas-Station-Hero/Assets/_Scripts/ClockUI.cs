@@ -42,7 +42,7 @@ public class ClockUI : MonoBehaviour
         if(dayEnded == false) { 
             clockMovement();
                                  // Adjust to 1f for debug 
-            if(12f > hourFloat && hourFloat >= 8f)
+            if(12f > hourFloat && hourFloat >= 1f)
             {
                 // crossfadeImage.SetActive(true);
                 // crossfadeImage.GetComponent<CanvasGroup>().alpha = 0;
