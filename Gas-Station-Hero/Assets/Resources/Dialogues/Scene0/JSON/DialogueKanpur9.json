@@ -1,0 +1,180 @@
+[
+	{
+		"Kanpur": "Hey"
+	},
+	{
+		"Kanpur": "Here's the new machine"
+	},
+	{
+		"Kanpur": "Turns out, I don't actually know how to put these things back together after I take them apart"
+	},
+	{
+		"Player": "It looks the same as the old one"
+	},
+	{
+		"Kanpur": "Of course it is"
+	},
+	{
+		"Kanpur": "What? Did you expect the newest model or something?"
+	},
+	{
+		"Player": "What was wrong with the old machine?"
+	},
+	{
+		"Kanpur": "Eh, nothing. Just felt like taking it apart"
+	},
+	{
+		"Player": "What? Why?"
+	},
+	{
+		"Kanpur": "Hey!"
+	},
+	{
+		"Kanpur": "You uhh, got any plans for the future?"
+	},
+	{
+		"Player": "Wow, that's rough"
+	},
+	{
+		"Kanpur": "Something tells me that someone like you won't be content working behind the counter forever"
+	},
+	{
+		"Player": "Well I guess I want to go to college"
+	},
+	{
+		"Kanpur": "College, huh"
+	},
+	{
+		"Player": "Yeah"
+	},
+	{
+		"Kanpur": "So you'll be heading to Quanei?"
+	},
+	{
+		"Player": "Yes, where else could I learn anything?"
+	},
+	{
+		"Kanpur": "Hah, right. Certainly not here"
+	},
+	{
+		"Kanpur": "I wouldn't blame ya"
+	},
+	{
+		"Kanpur": "I would want to leave this shit hole too"
+	},
+	{
+		"Player": "No, I'll be back"
+	},
+	{
+		"Player": "This is my home, after all."
+	},
+	{
+		"Kanpur": "Oh?"
+	},
+	{
+		"Kanpur": "You'll come back?"
+	},
+	{
+		"Kanpur": "You won't be enticed by Quanei 'Civilization'? "
+	},
+	{
+		"Kanpur": "That's what they all think when they leave"
+	},
+	{
+		"Kanpur": "They'll get acclimated to the Quanei's 'civilized' society, and the pristine living conditions there"
+	},
+	{
+		"Kanpur": "They'll receive a sliver of good will from the Quanei, and forget who brought them there in the first place"
+	},
+	{
+		"Kanpur": "And they'll.."
+	},
+	{
+		"Kanpur": "They'll be willing to become Quanei, themselves"
+	},
+	{
+		"Kanpur": "..."
+	},
+	{
+		"Kanpur": "You won't come back"
+	},
+	{
+		"Kanpur": "'This place is too fucking dirty, too fucking uncivilized'"
+	},
+	{
+		"Kanpur": "'Why couldn't we be more like the Quanei?'"
+	},
+	{
+		"Kanpur": "Sigh"
+	},
+	{
+		"Kanpur": "You won't be back"
+	},
+	{
+		"Kanpur": ""
+	},
+	{
+		"?": [
+			{
+				"1": [
+					"I will be back",
+					{
+						"Player": "I will be back"
+					},
+					{
+						"Kanpur": "Ha"
+					},
+					{
+						"Kanpur": "Fuck if I care"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			},
+			{
+				"2": [
+					"...",
+					{
+						"Player": "..."
+					},
+					{
+						"Kanpur": "..."
+					},
+					{
+						"Kanpur": "Time to close up shop"
+					},
+					{
+						"Kanpur": "Come on"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			},
+			{
+				"3": [
+					"It sounded like you knew someone who went to college there?",
+					{
+						"Player": "It sounded like you knew someone who went to college there?"
+					},
+					{
+						"Kanpur": "Nah, I don't"
+					},
+					{
+						"Kanpur": "Hey, I'm not paying you to ask questions"
+					},
+					{
+						"Kanpur": "It's closing time"
+					},
+					{
+						"Kanpur": "Remember to lock the doors"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			}
+		]
+	}
+]
