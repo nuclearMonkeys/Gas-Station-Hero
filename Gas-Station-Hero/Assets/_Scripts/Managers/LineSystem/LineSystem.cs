@@ -145,6 +145,7 @@ public class LineSystem : MonoBehaviour
         customer.transform.GetChild(0).GetComponent<clothingGeneration>().makeClothing();
         customer.transform.GetChild(1).GetComponent<GenerateFace>().makeFace();
 		DialogueTrigger.GetComponent<DialogueTrigger>().isNewCustomer = true;
+		DialogueTrigger.GetComponent<DialogueTrigger>().autoDialogue();
         float totalPrice = 0;
 
 		Instantiate(reciept, panel.transform);

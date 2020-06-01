@@ -8,7 +8,7 @@ using LitJson;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager instance = null;
-
+    //to-do fix bug where buttons dialogue is printed multiple times. Currently supressed with truncation
     // public TextMeshProUGUI textDisplay;
     // public List<GameObject> buttons = new List<GameObject>();
     public GameObject DialogueTrigger;
