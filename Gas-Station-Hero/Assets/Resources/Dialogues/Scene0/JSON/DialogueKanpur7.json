@@ -1,0 +1,52 @@
+[
+	{
+		"Kanpur": "Good Work"
+	},
+	{
+		"Kanpur": "The machine still needs a bit more fixin'"
+	},
+	{
+		"Kanpur": "Sorry about that"
+	},
+	{
+		"Kanpur": "We'll be cash only for a while now"
+	},
+	{
+		"?": [
+			{
+				"1": [
+					"Alright",
+					{
+						"Player": "Alright"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			},
+			{
+				"2": [
+					"Planning on evading taxes?",
+					{
+						"Player": "Planning on evading taxes?"
+					},
+					{
+						"Kanpur": "Ha ha, shut the hell up"
+					},
+					{
+						"Kanpur": "We're a respectable establishment, don't ever say anything that will attract attention."
+					},
+					{
+						"Kanpur": "Understand?"
+					},
+					{
+						"Player": "Understood"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			}
+		]
+	}
+]
