@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
 
     // public TextMeshProUGUI textDisplay;
     // public List<GameObject> buttons = new List<GameObject>();
-
+    public GameObject DialogueTrigger;
     public GameObject customerPanelDisplay;
     public GameObject playerPanelDisplay;
     public TextMeshProUGUI customerTextDisplay;
@@ -82,15 +82,22 @@ public class DialogueManager : MonoBehaviour
                 }
             }
             else {
-                // This is not a mistake. YMAL mapping is weird like that
-                if("Customer" == speaker) {
-                    customerTextDisplay.text += line_position + currentLayer[index][0].ToString(); 
+                if(DialogueTrigger.GetComponent<DialogueTrigger>().isInteraction == false) {
+                    // This is not a mistake. YMAL mapping is weird like that
+                    if("Customer" == speaker) {
+                        customerTextDisplay.text += line_position + currentLayer[index][0].ToString(); 
+                    }
+                    else {
+                        playerTextDisplay.text +=  line_position + currentLayer[index][0].ToString();
+                    }
+                    index++;
+                    line_position += "\n\n";
                 }
                 else {
-                    playerTextDisplay.text +=  line_position + currentLayer[index][0].ToString();
+                    playerTextDisplay.text = currentLayer[index][0].ToString();
+                    index++;
+                    line_position += "\n\n";
                 }
-                index++;
-                line_position += "\n\n";
             }
         }
         return true;
