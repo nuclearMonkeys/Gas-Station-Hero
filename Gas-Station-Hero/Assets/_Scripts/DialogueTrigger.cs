@@ -14,6 +14,7 @@ public class DialogueTrigger : MonoBehaviour
     public bool dialogueLoaded = false;
     public bool isNewCustomer = false;
     public bool isInteraction = false;
+    public bool isSocialLink = false;
     public string interaction_id;
 
     // Start is called before the first frame update

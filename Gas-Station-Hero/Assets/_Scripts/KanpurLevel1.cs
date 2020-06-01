@@ -10,6 +10,7 @@ public class KanpurLevel1 : MonoBehaviour
     {
         DialogueTrigger.GetComponent<DialogueTrigger>().interaction_id = "Kanpur1";
 		DialogueTrigger.GetComponent<DialogueTrigger>().isInteraction = true;
+        DialogueTrigger.GetComponent<DialogueTrigger>().isSocialLink = true;
     }
 
     // Update is called once per frame

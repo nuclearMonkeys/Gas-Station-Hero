@@ -24,19 +24,27 @@ public class DiscountBarcode : Barcode
     // Update is called once per frame
     void Update()
     {
-        if(register.GetComponent<CashRegister>().scannedItems.Count == lineSystem.GetComponent<LineSystem>().totalItems && register.GetComponent<CashRegister>().scannedPaymentCount == register.GetComponent<CashRegister>().paymentList.Count && register.GetComponent<CashRegister>().change > 0)
-		{
-			DialogueTrigger.GetComponent<DialogueTrigger>().interaction_id = "CustomerShortOnMoney";
-			DialogueTrigger.GetComponent<DialogueTrigger>().isInteraction = true;
+		if(!customerNotEnoughMoney) {
+			if(register.GetComponent<CashRegister>().scannedItems.Count == lineSystem.GetComponent<LineSystem>().totalItems && register.GetComponent<CashRegister>().scannedPaymentCount == register.GetComponent<CashRegister>().paymentList.Count && register.GetComponent<CashRegister>().change > 0)
+			{
+				Debug.Log("Customer got no money");
+				customerNotEnoughMoney = true;
+				DialogueTrigger.GetComponent<DialogueTrigger>().interaction_id = "CustomerShortOnMoney";
+				DialogueTrigger.GetComponent<DialogueTrigger>().isInteraction = true;
+				DialogueManager.instance.customerTextDisplay.text = "";
+				DialogueManager.instance.playerTextDisplay.text = "";
+				DialogueManager.instance.DeactivatePanels();
+				DialogueTrigger.GetComponent<DialogueTrigger>().isNewCustomer = true;
+				DialogueTrigger.GetComponent<DialogueTrigger>().autoDialogue();
 
-			customerNotEnoughMoney = true;
-			price = register.GetComponent<CashRegister>().change * (-1);
-			canBeScanned = true;
-		}
-		else
-		{
-			price = 0;
-			canBeScanned = false;
+				price = register.GetComponent<CashRegister>().change * (-1);
+				canBeScanned = true;
+			}
+			else
+			{
+				price = 0;
+				canBeScanned = false;
+			}
 		}
     }
 }

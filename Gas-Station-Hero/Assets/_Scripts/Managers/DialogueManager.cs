@@ -83,7 +83,7 @@ public class DialogueManager : MonoBehaviour
                 }
             }
             else {
-                if(!DialogueTrigger.GetComponent<DialogueTrigger>().isInteraction) {
+                if(!DialogueTrigger.GetComponent<DialogueTrigger>().isSocialLink) {
                     // This is not a mistake. YMAL mapping is weird like that
                     if("Customer" == speaker) {
                         customerTextDisplay.text += line_position + currentLayer[index][0].ToString(); 
