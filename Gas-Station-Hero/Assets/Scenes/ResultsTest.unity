@@ -962,6 +962,7 @@ MonoBehaviour:
   kacper: 0
   customersServed: 0
   savings: 0
+  day: 0
 --- !u!4 &1617855942
 Transform:
   m_ObjectHideFlags: 0

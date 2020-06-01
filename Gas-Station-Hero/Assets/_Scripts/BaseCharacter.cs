@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; // Delete this later
+using UnityEngine.SceneManagement;
 
 public class BaseCharacter : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class BaseCharacter : MonoBehaviour
     public int pointsToNextLevel = 5;
     public int points;
     public List<GameObject> buttons;
+    private bool isAdded;
+
 
     [Header("States")]
     public bool hasPointsAboveNext;
@@ -23,12 +26,22 @@ public class BaseCharacter : MonoBehaviour
         isInteracting = true;
 		currentLevel = background.GetComponent<Stats>().knowledge;
 		points = background.GetComponent<Stats>().knowledgeExp;
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(SceneManager.GetActiveScene().name == "MainScene") 
+        {
+            isAdded = false;
+        }
+        else if(SceneManager.GetActiveScene().name == "ResultsTest" && isAdded == false) 
+        {
+            isAdded = true;
+            Results.instance.characters.Add(this.gameObject);
+        }
     }
 
     public void GainPoints(int value) 
