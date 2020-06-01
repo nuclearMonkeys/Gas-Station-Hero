@@ -1,0 +1,51 @@
+[
+	{
+		"Kanpur": "Meet me outside when you¡¯re done"
+	},
+	{
+		"Kanpur": "So¡­ First week on the job"
+	},
+	{
+		"Kanpur": "How are you holding up?"
+	},
+	{
+		"?": [
+			{
+				"1": [
+					"Wonderful, can¡¯t imagine a better place to work",
+					{
+						"Player": "Wonderful, can't imagine a better place to work"
+					},
+					{
+						"Kanpur": "..."
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			},
+			{
+				"2": [
+					"Fine",
+					{
+						"Player": "Fine"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			},
+			{
+				"3": [
+					"It's a living",
+					{
+						"Player": "It's a living"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			}
+		]
+	}
+]

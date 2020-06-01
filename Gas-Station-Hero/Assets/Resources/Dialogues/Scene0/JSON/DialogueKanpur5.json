@@ -1,0 +1,141 @@
+[
+	{
+		"Kanpur": "I¡¯ve been keeping an eye on you for this week"
+	},
+	{
+		"Kanpur": "And it has always bothered me"
+	},
+	{
+		"Kanpur": "You seem just a bit too bright to be working here"
+	},
+	{
+		"Kanpur": "This aint exactly the best part of town"
+	},
+	{
+		"Kanpur": "And"
+	},
+	{
+		"Customer": "*BANG*"
+	},
+	{
+		"Kanpur": "And the pay's not excellent either, if I do say so myself"
+	},
+	{
+		"Kanpur": "Strange to see someone applying to work here"
+	},
+	{
+		"Kanpur": "So, why did you choose to work here?"
+	},
+	{
+		"Player": "I lost my work permit"
+	},
+	{
+		"Kanpur": "Lost?"
+	},
+	{
+		"Player": "Well, revoked, more like"
+	},
+	{
+		"Kanpur": "Hm, and how'd that happen?"
+	},
+	{
+		"?": [
+			{
+				"1": [
+					"Got into a fight with some Quanei bigshot¡¯s son",
+					{
+						"Player": "I got into a fight with some Quanei bigshot¡¯s son"
+					},
+					{
+						"Kanpur": "What?"
+					},
+					{
+						"Kanpur": "Are you crazy?"
+					},
+					{
+						"Kanpur": "What the hell are you thinking?"
+					},
+					{
+						"Player": "Don't worry, it's over. Losing my work permit was the end of it"
+					},
+					{
+						"Kanpur": "Well, I sure hope so"
+					},
+					{
+						"Kanpur": "I don't want no trouble with e Quaneis, you hear?"
+					},
+					{
+						"Player": "Yeah, no problem Kanpur"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			},
+			{
+				"2": [
+					"Busted a scam back in Goyak",
+					{
+						"Player": "I busted a scam back in Goyak"
+					},
+					{
+						"Kanpur": "Oh?"
+					},
+					{
+						"Kanpur": "But they had some connections huh?"
+					},
+					{
+						"Player": "Yeah"
+					},
+					{
+						"Kanpur": "Shouldn't have rushed in like that"
+					},
+					{
+						"Player": "Yeah"
+					},
+					{
+						"Kanpur": "You kids have no patience these days"
+					},
+					{
+						"Kanpur": "Always so eager to be a hero"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			}
+			{
+				"3": [
+					"Got caught in an affair",
+					{
+						"Player": "Got caught in an affair"
+					},
+					{
+						"Kanpur": "Affair? Like marriage affair?"
+					},
+					{
+						"Player": "Yeah"
+					},
+					{
+						"Kanpur": "Wow"
+					},
+					{
+						"Kanpur": "Was it worth it?"
+					},
+					{
+						"Player": "Yeah"
+					},
+					{
+						"Kanpur": "..."
+					},
+					{
+						"Kanpur": "Right.."
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			}
+		]
+	}
+]
