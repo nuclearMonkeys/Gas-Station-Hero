@@ -87,7 +87,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         transform.SetParent(parent);
         GetComponent<CanvasGroup>().blocksRaycasts = true;
-        print("Ended Drag");
+
         if (GetComponent<ScanGun>())
         {
             GetComponent<Image>().enabled = false;
@@ -97,7 +97,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         {
             if(canBeGiven)//if the item can be given, it will be given to the customer and disappear
             {
-                print("you're an all star");
                 transform.SetParent(parent.parent);
                 transform.SetSiblingIndex(transform.GetSiblingIndex() - 2);  //Item will now drop behind the counter
                 speed = -150;       //will initially go upwards 
