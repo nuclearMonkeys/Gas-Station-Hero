@@ -88,6 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CounterManager: {fileID: 0}
   price: 5.99
+  alreadyScanned: 0
 --- !u!1 &5696230033314615213
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOverCounter: 0
-  CanBeGiven: 0
+  canBeGiven: 0
   parent: {fileID: 0}
 --- !u!225 &5696230033742660763
 CanvasGroup:
