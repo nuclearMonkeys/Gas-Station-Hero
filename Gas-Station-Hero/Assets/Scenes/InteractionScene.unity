@@ -1708,7 +1708,7 @@ GameObject:
   - component: {fileID: 913517553}
   - component: {fileID: 913517552}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Kanpur_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -101,7 +101,7 @@ public class DialogueManager : MonoBehaviour
         foreach(GameObject button in buttons) 
         {
             button.SetActive(false);
-            button.GetComponentInChildren<Text>().text = "";
+            button.GetComponentInChildren<TextMeshProUGUI>().text = "";
             button.GetComponent<Button>().onClick.RemoveAllListeners();
         }
 
@@ -122,7 +122,7 @@ public class DialogueManager : MonoBehaviour
     private void ActivateButton(GameObject button, JsonData choice) 
     {
         button.SetActive(true);
-        button.GetComponentInChildren<Text>().text = choice[0][0].ToString();
+        button.GetComponentInChildren<TextMeshProUGUI>().text = choice[0][0].ToString();
         button.GetComponent<Button>().onClick.AddListener(delegate { toDoOnClick(choice); });
     }
 
