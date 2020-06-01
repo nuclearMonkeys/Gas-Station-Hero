@@ -894,7 +894,7 @@ MonoBehaviour:
   alreadyScanned: 0
   register: {fileID: 1623771668}
   lineSystem: {fileID: 859804621}
-  DialogueTrigger: {fileID: 0}
+  DialogueTrigger: {fileID: 2075081461}
   canBeScanned: 0
   customerNotEnoughMoney: 0
 --- !u!1 &364773537 stripped
@@ -5655,6 +5655,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 437c6614eabcdda4aa6e9b2d69567a86, type: 3}
+--- !u!1 &2075081461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8223837675261642098, guid: b08b4e688ed4eee4c824851250b19770,
+    type: 3}
+  m_PrefabInstance: {fileID: 556163591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2102721051
 GameObject:
   m_ObjectHideFlags: 0
