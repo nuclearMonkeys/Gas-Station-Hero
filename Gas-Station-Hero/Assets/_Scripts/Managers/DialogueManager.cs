@@ -138,6 +138,35 @@ public class DialogueManager : MonoBehaviour
         currentLayer = choice[0];
         index = 1;
         printLine();
+        if(DialogueTrigger.GetComponent<DialogueTrigger>().isShortOnMoney) {
+            if( "No, I'm sorry, please leave." == choice[0][0].ToString()) {
+                LineSystem.instance.MoveLine();
+                CashRegister.instance.scannedPaymentCount = 0;
+                DiscountBarcode.instance.alreadyScanned = false;
+                CashRegister.instance.totalPrice = 0;
+                CashRegister.instance.oneScan = false;
+                LineSystem.instance.totalItems = 0;
+                LineSystem.instance.customer.SetActive(false);
+                Reciept.instance.destroyReciept();
+                DiscountBarcode.instance.customerNotEnoughMoney = false;
+                CashRegister.instance.change = 0;
+                CashRegister.instance.UpdateRegisterDisplay(CashRegister.instance.change);
+                while (CashRegister.instance.paymentList.Count != 0)
+                {
+                    Destroy(CashRegister.instance.paymentList[0]);
+                    CashRegister.instance.paymentList.RemoveAt(0);
+                }
+                CashRegister.instance.scannedItems.RemoveRange(0, CashRegister.instance.scannedItems.Count);
+                for (int i = 0; i < CashRegister.instance.BufferSize; i++)
+                {
+                    CashRegister.instance.scans[i] = 0;
+                }
+                foreach(GameObject g in LineSystem.instance.items)
+                {
+                    Destroy(g);
+                }
+            }
+        }
         DeactivateButtons();
     }
 
