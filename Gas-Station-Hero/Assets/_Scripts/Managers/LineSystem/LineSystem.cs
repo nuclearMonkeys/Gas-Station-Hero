@@ -144,6 +144,9 @@ public class LineSystem : MonoBehaviour
 		customer.SetActive(true);
         customer.transform.GetChild(0).GetComponent<clothingGeneration>().makeClothing();
         customer.transform.GetChild(1).GetComponent<GenerateFace>().makeFace();
+		DialogueManager.instance.customerTextDisplay.text = "";
+        DialogueManager.instance.playerTextDisplay.text = "";
+		DialogueManager.instance.DeactivatePanels();
 		DialogueTrigger.GetComponent<DialogueTrigger>().isNewCustomer = true;
 		DialogueTrigger.GetComponent<DialogueTrigger>().autoDialogue();
         float totalPrice = 0;

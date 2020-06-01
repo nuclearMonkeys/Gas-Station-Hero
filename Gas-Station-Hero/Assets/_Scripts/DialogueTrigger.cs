@@ -30,9 +30,9 @@ public class DialogueTrigger : MonoBehaviour
     }
     
     IEnumerator Fade() {
-        yield return new WaitForSeconds(1);
             if(!dialogueLoaded && isNewCustomer)
                 {
+                    yield return new WaitForSeconds(1);
                     Debug.Log("Dialogue Loaded");
                     isNewCustomer = false;
                     
@@ -49,8 +49,8 @@ public class DialogueTrigger : MonoBehaviour
             if(dialogueLoaded)
             {
                 while(dialogueLoaded){
-                    yield return new WaitForSeconds(1);
                     dialogueLoaded = DialogueManager.instance.printLine();
+                    yield return new WaitForSeconds(1);
                 }
             }
 

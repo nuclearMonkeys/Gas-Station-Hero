@@ -66,12 +66,12 @@ public class DialogueManager : MonoBehaviour
             if (speaker == "EOD")
             {
                 inDialogue = false;
-                customerTextDisplay.text = "";
-                playerTextDisplay.text = "";
+                // customerTextDisplay.text = "";
+                // playerTextDisplay.text = "";
                 index = 0;
                 line_position = "";
                 DialogueTrigger.GetComponent<DialogueTrigger>().isInteraction = false;
-                DeactivatePanels();
+                // DeactivatePanels();
                 return false;          
             }
             else if(speaker == "?")
@@ -116,7 +116,7 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    private void DeactivatePanels() 
+    public void DeactivatePanels() 
     {
         customerPanelDisplay.SetActive(false);
         playerPanelDisplay.SetActive(false);
