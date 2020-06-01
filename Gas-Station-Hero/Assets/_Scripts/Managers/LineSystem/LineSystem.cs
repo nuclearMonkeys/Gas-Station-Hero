@@ -149,6 +149,7 @@ public class LineSystem : MonoBehaviour
 		DialogueManager.instance.DeactivatePanels();
 		DialogueTrigger.GetComponent<DialogueTrigger>().isNewCustomer = true;
 		DiscountBarcode.instance.customerNotEnoughMoney = false;
+		DialogueTrigger.GetComponent<DialogueTrigger>().isShortOnMoney = false;
 		DialogueTrigger.GetComponent<DialogueTrigger>().autoDialogue();
         float totalPrice = 0;
 

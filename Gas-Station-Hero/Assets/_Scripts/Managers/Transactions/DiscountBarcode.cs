@@ -29,6 +29,7 @@ public class DiscountBarcode : Barcode
 			{
 				Debug.Log("Customer got no money");
 				customerNotEnoughMoney = true;
+				DialogueTrigger.GetComponent<DialogueTrigger>().isShortOnMoney = true;
 				DialogueTrigger.GetComponent<DialogueTrigger>().interaction_id = "CustomerShortOnMoney";
 				DialogueTrigger.GetComponent<DialogueTrigger>().isInteraction = true;
 				DialogueManager.instance.customerTextDisplay.text = "";
