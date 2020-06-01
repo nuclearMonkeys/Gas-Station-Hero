@@ -1,0 +1,46 @@
+[
+	{
+		"Kanpur": "Hey. How¡¯s it going?"
+	},
+	{
+		"Player": "Great, boss."
+	},
+	{
+		"Kanpur": "Hmmm"
+	},
+	{
+		"Kanpur": "Good¡­ Good¡­"
+	},
+	{
+		"Kanpur": "Hey, pass me a pack of smokes"
+	},
+	{
+		"?": [
+			{
+				"1": [
+					"Hey, you didn't pay for that",
+					{
+						"Player": "Hey, you didn't pay for that"
+					},
+					{
+						"Kanpur": "Hah, you¡¯re gonna charge me for my own cigarettes?"
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			},
+			{
+				"2": [
+					"...",
+					{
+						"Player": "..."
+					},
+					{
+						"EOD": "EOD"
+					}
+				]
+			}
+		]
+	}
+]
