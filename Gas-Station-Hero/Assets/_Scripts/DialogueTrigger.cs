@@ -42,7 +42,6 @@ public class DialogueTrigger : MonoBehaviour
                 }
                 else {
                     string_dialogue_id = interaction_id;
-                    isInteraction = false;
                 }
                 dialogueLoaded = DialogueManager.instance.loadDialogue(dialoguePath + string_dialogue_id);
                 

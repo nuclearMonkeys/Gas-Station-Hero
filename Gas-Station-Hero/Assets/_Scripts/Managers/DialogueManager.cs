@@ -70,6 +70,7 @@ public class DialogueManager : MonoBehaviour
                 playerTextDisplay.text = "";
                 index = 0;
                 line_position = "";
+                DialogueTrigger.GetComponent<DialogueTrigger>().isInteraction = false;
                 DeactivatePanels();
                 return false;          
             }
@@ -82,7 +83,7 @@ public class DialogueManager : MonoBehaviour
                 }
             }
             else {
-                if(DialogueTrigger.GetComponent<DialogueTrigger>().isInteraction == false) {
+                if(!DialogueTrigger.GetComponent<DialogueTrigger>().isInteraction) {
                     // This is not a mistake. YMAL mapping is weird like that
                     if("Customer" == speaker) {
                         customerTextDisplay.text += line_position + currentLayer[index][0].ToString(); 
@@ -94,9 +95,9 @@ public class DialogueManager : MonoBehaviour
                     line_position += "\n\n";
                 }
                 else {
-                    playerTextDisplay.text = currentLayer[index][0].ToString();
+                    playerTextDisplay.text = "";
+                    playerTextDisplay.text = speaker + ": " +currentLayer[index][0].ToString();
                     index++;
-                    line_position += "\n\n";
                 }
             }
         }
