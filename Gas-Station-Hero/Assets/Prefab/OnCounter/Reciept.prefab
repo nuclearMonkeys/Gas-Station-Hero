@@ -227,12 +227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3d853a0b81de614eb7035c0bb1a5592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOverCounter: 1
-  CanBeGiven: 1
+  isOverCounter: 0
+  canBeGiven: 0
   parent: {fileID: 0}
-  register: {fileID: 0}
-  line_manager: {fileID: 0}
-  statsHolder: {fileID: 0}
   originalLocation: {x: 0, y: 0, z: 0}
 --- !u!1 &6424649878202364022
 GameObject:

@@ -72,6 +72,10 @@ public class Reciept : Draggable
             Destroy(this.gameObject);
 			
         }
+        else if (isOverCounter && !canBeGiven)
+        {
+            gameObject.transform.position = originalLocation;
+        }
 		
         // This will cause an error if no customer is in front
         // Of the counter
