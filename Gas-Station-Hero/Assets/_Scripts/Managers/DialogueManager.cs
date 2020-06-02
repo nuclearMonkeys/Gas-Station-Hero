@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
     private string line_position = "";
     private string speaker;
 
-    private bool inDialogue;
+    public bool inDialogue;
 
     private void Awake() 
     {
